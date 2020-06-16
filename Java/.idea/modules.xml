@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/02.HelloJava/02.HelloJava.iml" filepath="$PROJECT_DIR$/02.HelloJava/02.HelloJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03.Calculator/03.Calculator.iml" filepath="$PROJECT_DIR$/03.Calculator/03.Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/03.Modifier/03.Modifier.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/03.Modifier/03.Modifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/04.Company/04.Company.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/04.Company/04.Company.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04.Storage/04.Storage.iml" filepath="$PROJECT_DIR$/04.Storage/04.Storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/05.Fraction/05.Fraction.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/05.Fraction/05.Fraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05.Operation/05.Operation.iml" filepath="$PROJECT_DIR$/05.Operation/05.Operation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06.Structure/06.Structure.iml" filepath="$PROJECT_DIR$/06.Structure/06.Structure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/07.VideoStore/07.VideoStore.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/07.VideoStore/07.VideoStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10.CommonClass/10.CommonClass.iml" filepath="$PROJECT_DIR$/10.CommonClass/10.CommonClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11.ThirdPartJar/11.ThirdPartJar.iml" filepath="$PROJECT_DIR$/11.ThirdPartJar/11.ThirdPartJar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08.Static/practice/Person/Ans/Ans.iml" filepath="$PROJECT_DIR$/08.Static/practice/Person/Ans/Ans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09.ObjectConstruction/practice/Circle/Circle.iml" filepath="$PROJECT_DIR$/09.ObjectConstruction/practice/Circle/Circle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practice/ClassDefAns/ClassDefAns.iml" filepath="$PROJECT_DIR$/practice/ClassDefAns/ClassDefAns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08.Static/practice/CompanyRefine/CompanyRefine.iml" filepath="$PROJECT_DIR$/08.Static/practice/CompanyRefine/CompanyRefine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practice/Modifier/Modifier.iml" filepath="$PROJECT_DIR$/practice/Modifier/Modifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/02.DogAndCat/Ans/Normal/Normal.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/02.DogAndCat/Ans/Normal/Normal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Others/Others.iml" filepath="$PROJECT_DIR$/Others/Others.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/02.DogAndCat/Ans/Package/Package.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/02.DogAndCat/Ans/Package/Package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09.ObjectConstruction/practice/Product/Product.iml" filepath="$PROJECT_DIR$/09.ObjectConstruction/practice/Product/Product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08.Static/practice/Person/Que/Que.iml" filepath="$PROJECT_DIR$/08.Static/practice/Person/Que/Que.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09.ObjectConstruction/practice/Robot/Robot.iml" filepath="$PROJECT_DIR$/09.ObjectConstruction/practice/Robot/Robot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09.ObjectConstruction/practice/SportTeam/SportTeam.iml" filepath="$PROJECT_DIR$/09.ObjectConstruction/practice/SportTeam/SportTeam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09.ObjectConstruction/example/example.iml" filepath="$PROJECT_DIR$/09.ObjectConstruction/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08.Static/example/example1.iml" filepath="$PROJECT_DIR$/08.Static/example/example1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/example/example2.iml" filepath="$PROJECT_DIR$/07.ClassDef/example/example2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practice/practice.iml" filepath="$PROJECT_DIR$/practice/practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06.Structure/practice/practice1.iml" filepath="$PROJECT_DIR$/06.Structure/practice/practice1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03.Calculator/practice/practice2.iml" filepath="$PROJECT_DIR$/03.Calculator/practice/practice2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07.ClassDef/practice/practice3.iml" filepath="$PROJECT_DIR$/07.ClassDef/practice/practice3.iml" />
+    </modules>
+  </component>
+</project>
