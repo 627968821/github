@@ -1,6 +1,6 @@
 public class Company {
 
-    private Employee [] employeeArr = new Employee[100];
+    private Employee[] employeeArr = new Employee[100];
     private int employeeTotal = 0;
 
     public void add(Employee employee) {
@@ -15,7 +15,7 @@ public class Company {
     public Employee remove(String name) {
         int index = -1;
 
-        for (int i = 0; i < employeeTotal ; i++ ) {
+        for (int i = 0; i < employeeTotal; i++) {
             if (employeeArr[i].getName().equals(name)) {
                 index = i;
                 break;
@@ -36,8 +36,8 @@ public class Company {
     }
 
     public void printAll() {
-    	System.out.println("=============");
-        for (int i = 0; i < employeeTotal; i++ ) {
+        System.out.println("=============");
+        for (int i = 0; i < employeeTotal; i++) {
             Employee employee = employeeArr[i];
             System.out.println(employee.getName() + ":" + employee.getSalary());
         }
