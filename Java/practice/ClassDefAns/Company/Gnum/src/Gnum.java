@@ -43,7 +43,8 @@ public class Gnum {
         int i = sc.nextInt();
         if (i == 0) {
             System.out.println("结束");
-            //return;
+            //Object intstatus;
+            System.exit(0);
         } else {
             gease(i);
         }
