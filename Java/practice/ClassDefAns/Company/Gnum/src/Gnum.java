@@ -29,49 +29,92 @@ import java.util.Scanner;
 //        第3次 90 => +10
 //        第4次 80 => 正确
 public class Gnum {
-    private static int i;
-    private static int j=80;
+    private static final int[] j = {8, 88, 888};
+    private static int k;
     private static int count;
 
-    public static void setI(int i) {
-        Gnum.i = i;
+//    public static void setI(int i) {
+//        Gnum.i = i;
+//    }
+
+    public static void choice() {
+        System.out.println("请选择难度：0退出");
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        if (i == 0) {
+            System.out.println("结束");
+            //Object intstatus;
+            System.exit(0);
+        } else {
+            gease(i);
+        }
     }
-public static void choice(){
-    System.out.println("请选择难度：");
-    Scanner sc =new Scanner(System.in);
-    int i=sc.nextInt();
-}
-public int option(){
-    System.out.printf("剩余次数%d，请输入数字:",count);
+
+    public static void option() {
+        System.out.printf("剩余次数%d，请输入数字:", count);
 //    int num=sc1.nextInt();
-    Scanner sc1=new Scanner(System.in);
-    int num=sc1.nextInt();
-    choose(num);
-   // return num;
-}
-public void choose(int num){
-    if(num==0){
-        this.choice();
-    }else if(num==j){
-        System.out.println("恭喜你，猜中了");
-    }else if(num>j){
-        System.out.printf("输入的是%d，没有猜中，猜大了\n",num);
-        count--;
-        option();
-    }else if(num<j){
-        System.out.printf("输入的是%d，没有猜中，猜小了\n",num);
-        count--;
-        option();
+        Scanner sc1 = new Scanner(System.in);
+        int num = sc1.nextInt();
+        choose(num);
+        // return num;
     }
-}
-    public void gease() {
-        switch (i) {
-            case 1:Scanner sc1=new Scanner(System.in);
-            int count=sc1.nextInt();
-                System.out.printf("你当前选择的难度等级0~99\n请输入想要猜的次数，0返回上一级\n你的输入：%d",count);
-                if(count==0){
+
+    public static void choose(int num1) {
+//    if(num==0){
+//        this.choice();
+//    }else
+        if (num1 == j[k]) {
+            System.out.printf("输入的是%d,恭喜你，猜中了\n", num1);
+        } else if (num1 > j[k]) {
+            System.out.printf("输入的是%d，没有猜中，猜大了\n", num1);
+            count--;
+            option();
+        } else if (num1 < j[k]) {
+            System.out.printf("输入的是%d，没有猜中，猜小了\n", num1);
+            count--;
+            option();
+        }
+    }
+
+    public static void gease(int num2) {
+        switch (num2) {
+            case 1:
+
+                System.out.println("你当前选择的难度等级0~9\n请输入想要猜的次数，0返回上一级\n你的输入：\n");
+                Scanner sc1 = new Scanner(System.in);
+                count = sc1.nextInt();
+                if (count == 0)
                     choice();
-                }
+                else
+                    System.out.println("现在开始");
+                k = 0;
+                option();
+                choice();
+            case 2:
+                System.out.println("你当前选择的难度等级0~99\n请输入想要猜的次数，0返回上一级\n你的输入：\n");
+                Scanner sc2 = new Scanner(System.in);
+                count = sc2.nextInt();
+                if (count == 0) {
+                    choice();
+                } else
+                    System.out.println("现在开始");
+                k = 1;
+                option();
+                choice();
+            case 3:
+                System.out.println("你当前选择的难度等级0~999\n请输入想要猜的次数，0返回上一级\n你的输入：\n");
+                Scanner sc3 = new Scanner(System.in);
+                count = sc3.nextInt();
+                if (count == 0) {
+                    choice();
+                } else
+                    System.out.println("现在开始");
+                k = 2;
+                option();
+                choice();
+            default:
+                System.out.println("请重新输入难度为1，2，3;0退出");
+                choice();
 
         }
     }
