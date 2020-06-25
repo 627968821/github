@@ -7,10 +7,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="example" />
-    <orderEntry type="module" module-name="11.ThirdPartJar" />
+    <orderEntry type="library" name="main" level="project" />
+    <orderEntry type="library" name="main1" level="project" />
+    <orderEntry type="module" module-name="Ans" />
     <orderEntry type="module" module-name="Modifier" />
+    <orderEntry type="module" module-name="03.Modifier1" />
+    <orderEntry type="module" module-name="example6" />
+    <orderEntry type="module" module-name="example3" />
     <orderEntry type="module" module-name="example1" />
+    <orderEntry type="module" module-name="Que2" />
+    <orderEntry type="module" module-name="11.ThirdPartJar" />
+    <orderEntry type="module" module-name="example7" />
     <orderEntry type="module" module-name="03.Modifier" />
+    <orderEntry type="module" module-name="example4" />
+    <orderEntry type="module" module-name="14.Polymorphism" />
   </component>
 </module>
