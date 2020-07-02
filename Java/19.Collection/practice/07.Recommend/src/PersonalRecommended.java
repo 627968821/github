@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class PersonalRecommended implements Recommended {
     Map<String, LinkedList<String>> likes = new HashMap<>();
@@ -32,6 +30,24 @@ public class PersonalRecommended implements Recommended {
     }
     @Override
     public LinkedList<String> recommendByProject(LinkedList<String> likesList){
-        
+        Set<String> likeLists=new LinkedHashSet<>();
+        for (String key : likes.keySet()) {
+            for (String str:likes.get(key)) {
+                likeLists.add(str);
+            }
     }
+        LinkedList<String> linkedList=new LinkedList<>();
+        for (String str:likeLists) {
+            linkedList.add(str);
+        }
+        for (String str:likesList) {
+            for (String str1:likeLists) {
+                if(str.equals(str1)){
+                    linkedList.remove(str);
+                }
+            }
+        }
+          return linkedList;
+        }
+
 }
