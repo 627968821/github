@@ -4,10 +4,17 @@
 //        3. 每次出拳比较后，输的人被淘汰，剩余玩家继续出拳直到一人胜出。
 //        4. 每次比较后，输出每个玩家（编号）的出拳和胜负情况
 public class GeassQ {
-    static int []a={3,2,3,4,5};
-    static void asd(){
-        for(int i: a){
-            System.out.println(i);
-        }
+    public interface choice {
+        public static final int 石头=1;
+        public static final int 剪刀=2;
+        public static final int 布=3;
     }
+
+    public enum choose {
+        石头,
+        剪刀,
+        布;
+    }
+
+
 }
