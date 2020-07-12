@@ -1,6 +1,4 @@
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Automobile implements Serializable {
@@ -9,8 +7,16 @@ public class Automobile implements Serializable {
     private String maintenanceDate;//最后保养日期
     private String vehicleNumber;//填写厂家完成后，请用户填写车辆编号，编号必须是唯一的，卡车以V_开头，轿车以C_开头
     private boolean isRent=false;
-
-
+    private boolean  isMaintenance=false;//是否在保养
+    private String endMaintenance;//结束保养时间
+    private   String customer;//顾客编号
+    private  String startTime;//起租时间
+    private int time;//租用天数
+    private String endTime;//归还时间
+    private String rentLongTime;//租车信息
+    public void setEndMaintenance(String endMaintenance) {
+        this.endMaintenance = endMaintenance;
+    }
     public Automobile addAntomobile() {
         return setAutomobile();
     }
@@ -44,6 +50,14 @@ public class Automobile implements Serializable {
         return null;
     }
 
+    public String getRentLongTime() {
+        return rentLongTime;
+    }
+
+    public void setRentLongTime(String rentLongTime) {//更新租用信息
+      this.rentLongTime+=rentLongTime;
+    }
+
     public void message() {
     }
 
@@ -69,18 +83,6 @@ public class Automobile implements Serializable {
 //        maintenanceDate=simpleDateFormat.format(date);
     }
 
-    public void setFactoryYear(int factoryYear) {
-        this.factoryYear = factoryYear;
-    }
-
-    public void setFactory(String factory) {
-        this.factory = factory;
-    }
-
-    public void setMaintenanceDate(String maintenanceDate) {
-        this.maintenanceDate = maintenanceDate;
-    }
-
     public void setVehicleNumber(String vehicleNumber) {
         this.vehicleNumber = vehicleNumber;
     }
@@ -95,6 +97,59 @@ public class Automobile implements Serializable {
 
     public void setRent(boolean rent) {
         isRent = rent;
+    }
+
+    public boolean isMaintenance() {
+        return isMaintenance;
+    }
+
+    public void setMaintenance(boolean maintenance) {
+        isMaintenance = maintenance;
+    }
+
+    public int getFactoryYear() {
+        return factoryYear;
+    }
+
+    public String getFactory() {
+        return factory;
+    }
+
+    public String getMaintenanceDate() {
+        return maintenanceDate;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+        setRentLongTime(endTime);
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+        setRentLongTime(startTime);
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     @Override

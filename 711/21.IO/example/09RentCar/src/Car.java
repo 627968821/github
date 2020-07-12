@@ -22,9 +22,9 @@ public class Car extends Automobile {
             System.out.println("输入有误");
             setVehicleNumber();
         }
-       String supVehicleNumber="C_" + vehicleNumber;
+        String supVehicleNumber = "C_" + vehicleNumber;
         for (Automobile automobile : RentCar.carList) {
-            if(supVehicleNumber.equalsIgnoreCase(automobile.getVehicleNumber())){
+            if (supVehicleNumber.equalsIgnoreCase(automobile.getVehicleNumber())) {
                 System.out.println("编号重复,请重新输入");
                 setVehicleNumber();
             }
@@ -48,5 +48,16 @@ public class Car extends Automobile {
         } else {
             this.seating = seating;
         }
+    }
+
+    @Override
+    public void message() {
+        System.out.println("***********轿车**********\n" + "-----" + super.getVehicleNumber() + "------\n"
+                + seating + "座车\n" +
+                "年份：" + super.getFactoryYear() + "\n" +
+                "厂家：" + super.getFactory() + "\n" +
+                "状态：" + (super.isRent() ? "借出" : "可用") + "\n" +
+                "保养日期：" + super.getMaintenanceDate() + "\n" +
+                "租借记录："+super.getRentLongTime()+"\n");
     }
 }

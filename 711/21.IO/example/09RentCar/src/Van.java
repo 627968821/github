@@ -48,4 +48,15 @@ public class Van extends Automobile{
             setFuelType();
         }
     }
+    @Override
+   public void message(){
+       System.out.println("***********卡车**********\n" +
+               "-----"+super.getVehicleNumber()+"------\n" +
+               fuelType+"\n" +
+               "年份："+super.getFactoryYear()+"\n" +
+               "厂家："+super.getFactory()+"\n" +
+               "状态："+(super.isRent()?"借出":"可用")+"\n" +
+               "保养日期："+super.getMaintenanceDate()+"\n" +
+               "租借记录："+super.getRentLongTime()+"\n");
+    }
 }
