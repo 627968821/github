@@ -15,28 +15,33 @@ public class Udp {
     void udp() {
         {
             try {
-                DatagramSocket socket = new DatagramSocket();
+                DatagramSocket socket = new DatagramSocket(5001);
                 System.out.println("请输入ip地址，端口号，信息");
                 Scanner scanner = new Scanner(System.in);
                 String ipStr = scanner.nextLine();
-                if (ipStr.equals("quit")) {
+                if (ipStr.equals("exit")) {
+                    byte[] bytes = ipStr.getBytes();
+                    DatagramPacket packet = new DatagramPacket(bytes, 0, bytes.length, InetAddress.getByName("255.255.255.0"),5000);
+                    socket.send(packet);
                     System.out.println("退出");
                     return;
                 }
                 String[] strings = ipStr.split(" ");
-                int port= 0;
+                int port = 0;
                 try {
                     port = Integer.parseInt(strings[1]);
                 } catch (NumberFormatException e) {
                     System.out.println("端口输入有误");
                     udp();
+                    return;
                 }
                 byte[] bytes = strings[2].getBytes();
                 DatagramPacket packet = new DatagramPacket(bytes, 0, bytes.length, InetAddress.getByName(strings[0]), port);
                 socket.send(packet);
                 socket.close();
                 System.out.println("发送成功");
-            } catch (SocketException | UnknownHostException e ) {
+                udp();
+            } catch (SocketException | UnknownHostException e) {
                 System.out.println("地址有误");
                 udp();
             } catch (IOException e) {
@@ -45,6 +50,7 @@ public class Udp {
             }
         }
     }
+
     public static void main(String[] args) {
         Udp udp = new Udp();
         udp.udp();

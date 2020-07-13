@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/10.CommonClass/practice/01.Random/01.Random.iml" filepath="$PROJECT_DIR$/JavaSE-2041/10.CommonClass/practice/01.Random/01.Random.iml" />
+      <module fileurl="file://$PROJECT_DIR$/713/23.Socket/practice/01.udp/01.udp.iml" filepath="$PROJECT_DIR$/713/23.Socket/practice/01.udp/01.udp.iml" />
       <module fileurl="file://$PROJECT_DIR$/79/02(1).CaesarCipher/02(1).CaesarCipher.iml" filepath="$PROJECT_DIR$/79/02(1).CaesarCipher/02(1).CaesarCipher.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/02.HelloJava/02.HelloJava.iml" filepath="$PROJECT_DIR$/Java/02.HelloJava/02.HelloJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/02.HelloJava/02.HelloJava1.iml" filepath="$PROJECT_DIR$/JavaSE-2041/02.HelloJava/02.HelloJava1.iml" />
@@ -84,6 +85,7 @@
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/13.Extends/example/Static/Static.iml" filepath="$PROJECT_DIR$/JavaSE-2041/13.Extends/example/Static/Static.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/15.Interface/example/example.iml" filepath="$PROJECT_DIR$/JavaSE-2041/15.Interface/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/08.Static/example/example1.iml" filepath="$PROJECT_DIR$/Java/08.Static/example/example1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/713/23.Socket/example/example132.iml" filepath="$PROJECT_DIR$/713/23.Socket/example/example132.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/07.ClassDef/example/example2.iml" filepath="$PROJECT_DIR$/Java/07.ClassDef/example/example2.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/11.ThirdPartJar/example/example3.iml" filepath="$PROJECT_DIR$/JavaSE-2041/11.ThirdPartJar/example/example3.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaSE-2041/09.ObjectConstruction/example/example4.iml" filepath="$PROJECT_DIR$/JavaSE-2041/09.ObjectConstruction/example/example4.iml" />
