@@ -25,8 +25,8 @@ public class SocketHandler extends Thread {
             mbmRequest.setMethod(stringTokenizer.nextToken());
             mbmRequest.setPath(stringTokenizer.nextToken());
             while (line != null && line.length() != 0) {
-                if (line.startsWith("Host:")) {
-                    mbmRequest.setHost(line.replace("Host:", ""));
+                if (line.startsWith("Host: ")) {
+                    mbmRequest.setHost(line.replace("Host: ", ""));
                 }
                 if (line.startsWith("Content-Length:")) {
                     mbmRequest.setContentLength(Integer.parseInt(line.replace("Content-Length: ", "")));
@@ -48,7 +48,7 @@ public class SocketHandler extends Thread {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 clientSocket.close();
             } catch (IOException e) {
@@ -58,7 +58,8 @@ public class SocketHandler extends Thread {
     }
 
     private void responseResource(String path) {//响应资源
-        InputStream inputStream = HttpServer.class.getClassLoader().getResourceAsStream(path);;
+        InputStream inputStream = HttpServer.class.getClassLoader().getResourceAsStream(path);
+        ;
         if (path.startsWith("/")) {
             path = path.substring(1);
         }
@@ -95,14 +96,13 @@ public class SocketHandler extends Thread {
             OutputStream outputStream = clientSocket.getOutputStream();
             outputStream.write("HTTP/1.1 302 Found".getBytes());
             outputStream.write("\r\n".getBytes());
-            outputStream.write(("Location: " + " http://" + mbmRequest.getHost() + path).getBytes());
+            // 告知浏览器请求结束，需要再次向请求给定的路径发起请求
+            outputStream.write(("Location: " + "http://" + mbmRequest.getHost() + path).getBytes());
             outputStream.write("\r\n".getBytes());
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

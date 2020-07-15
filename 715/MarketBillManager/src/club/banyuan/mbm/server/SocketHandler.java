@@ -47,7 +47,7 @@ public class SocketHandler extends Thread {
 
       // 循环读取请求头的信息，按照一行一行的方式读取，读取到空行则退出循环
       while (line != null && line.length() != 0) {
-        if (line.startsWith("Host:")) {
+        if (line.startsWith("Host: ")) {
           mbmRequest.setHost(line.replace("Host: ", ""));
         }
         if (line.startsWith("Content-Length:")) {
