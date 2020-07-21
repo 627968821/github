@@ -1,16 +1,18 @@
 package club.banyuan.mbm.uti;
 
 import club.banyuan.mbm.entity.Validation;
+import club.banyuan.mbm.exception.BadRequestException;
 import club.banyuan.mbm.exception.ValidationException;
 import java.lang.reflect.Field;
+import java.net.URL;
 
 public class ValidationUtil {
 
   public static void validate(Object o) {
 
     Field[] declaredFields = o.getClass().getDeclaredFields();
-    for (Field declaredField : declaredFields) {
 
+    for (Field declaredField : declaredFields) {
       declaredField.setAccessible(true);
       Validation annotation = declaredField.getDeclaredAnnotation(Validation.class);
       if (annotation != null) {
@@ -22,6 +24,9 @@ public class ValidationUtil {
           throw new ValidationException("校验失败");
         }
         if (declaredField.getType() == String.class) {
+          if(s==null){
+            throw new BadRequestException("手机号为空");
+          }
           if (!((String) s).matches(regex)) {
             throw new ValidationException(annotation.msg());
           }

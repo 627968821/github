@@ -1,8 +1,11 @@
 package club.banyuan.mbm.service;
 
 import club.banyuan.mbm.entity.Provider;
-import club.banyuan.mbm.exception.SupplierNameException;
+import club.banyuan.mbm.exception.FormPostException;
+import club.banyuan.mbm.exception.MbmException;
+import club.banyuan.mbm.exception.ValidationException;
 import club.banyuan.mbm.uti.PropUtil;
+import club.banyuan.mbm.uti.ValidationUtil;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
@@ -10,6 +13,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ProviderService {
     private static int providerId;
@@ -49,16 +54,22 @@ public class ProviderService {
         }
     }
 
-    public  void addSupplier(Provider provider) {//添加供应商
+    public void addSupplier(Provider provider) {//添加供应商
+        try {
+            ValidationUtil.validate(provider);
+        } catch (MbmException e) {
+            throw new ValidationException(e.getMessage());
+        }
         if (isExist(provider)) {
-            throw  new SupplierNameException("供应商已存在");
+            throw new FormPostException("供应商已存在");
         } else {
+            provider.setId(providerId++);
             providerList.add(provider);
             save();
         }
     }
 
-    public static boolean isExist(Provider provider) {//判断是否存在同名的供应商
+    public boolean isExist(Provider provider) {//判断是否存在同名的供应商
         for (Provider provider1 : providerList) {
             if (provider.equals(provider1)) {
                 return true;
@@ -67,20 +78,62 @@ public class ProviderService {
         return false;
     }
 
-
-    public static List<Provider> getProviderList() {
+    public List<Provider> getProviderList(Provider provider) {//根据provider对象检索返回链表
+        if (provider.getName() == null && provider.getDesc().trim().length() == 0) {
+            return getProviderList();
+        }
+        List<Provider> providerList = new LinkedList<>();
+        for (Provider pro : getProviderList()) {
+            if (pro.getName().contains(provider.getName()) && pro.getDesc().contains(provider.getDesc())) {
+                providerList.add(pro);
+            } else if (provider.getName() == null && pro.getDesc().contains(provider.getDesc())) {
+                providerList.add(pro);
+            } else if (provider.getDesc() == null && pro.getName().contains(provider.getName())) {
+                providerList.add(pro);
+            }
+        }
         return providerList;
     }
 
-    public static void setProviderList(List<Provider> providerList) {
+    public List<Provider> getProviderList() {
+        return providerList;
+    }
+
+    public void setProviderList(List<Provider> providerList) {
         ProviderService.providerList = providerList;
     }
 
-    public static int getProviderId() {
+    public int getProviderId() {
         return providerId;
     }
 
-    public static void setProviderId(int providerId) {
+
+    public void setProviderId(int providerId) {
         ProviderService.providerId = providerId;
+    }
+
+    public List<Provider> upDateProvider(Provider provider) {//更新
+        try {
+            ValidationUtil.validate(provider);//校验电话号码是否合法
+        } catch (Exception e) {
+            throw new FormPostException(e.getMessage());
+        }
+        Provider providerById = getProviderById(provider.getId());
+        providerById.setContactPerson(provider.getContactPerson());
+        providerById.setDesc(provider.getDesc());
+        providerById.setPhone(provider.getPhone());
+        providerById.setName(provider.getName());
+        save();
+        return providerList;
+    }
+
+    public List<Provider> deleteProviderById(int id) {//根据id检索删除provider对象 返回删除后的providerList
+        getProviderList().removeIf(provider -> id == provider.getId());
+        save();
+        return getProviderList();
+    }
+    public Provider getProviderById(int id) {
+        List<Provider> collect = providerList.stream().filter(provider -> provider.getId() == id).collect(Collectors.toList());
+        return collect.get(0);
     }
 }

@@ -1,6 +1,9 @@
 package club.banyuan.mbm.server;
 
 import club.banyuan.mbm.entity.User;
+import club.banyuan.mbm.exception.BadRequestException;
+import club.banyuan.mbm.exception.FormPostException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -104,10 +107,28 @@ public class MbmRequest {
   // payload = name=123&pwd=123
   // name  123   pwd  123
   public Map<String, String> getFormData() {
-    StringTokenizer stringTokenizer = new StringTokenizer(payload, "&|=");
-    Map<String, String> rlt = new HashMap<>();
-    while (stringTokenizer.hasMoreTokens()) {
-      rlt.put(stringTokenizer.nextToken(), stringTokenizer.nextToken());
+    Map<String, String> rlt = null;
+    try {
+//        rlt = new HashMap<>();
+//        String[] params = payload.split("&");
+//        for (String param : params) {
+//          String[] keyValue = param.split("=");
+//          if(keyValue[1]==null){
+//            throw new BadRequestException("输入不能为空");
+//          }
+//          rlt.put(keyValue[0], keyValue[1]);
+//        }
+      StringTokenizer stringTokenizer = new StringTokenizer(payload, "&|=");
+      rlt = new HashMap<>();
+      while (stringTokenizer.hasMoreTokens()) {
+        rlt.put(stringTokenizer.nextToken(), stringTokenizer.nextToken());
+      }
+      for (String s : rlt.keySet()) {
+        System.out.println(s);
+        System.out.println(rlt.get(s));
+      }
+    } catch (Exception e) {
+      throw new BadRequestException("输入不能为空");
     }
     return rlt;
   }

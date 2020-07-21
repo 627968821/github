@@ -7,6 +7,7 @@ public class Provider {
     private String name;
     private String desc;
     private String contactPerson;
+    @Validation (regex="[1][358][0-9]{9}",msg = "手机号不合法")
     private String phone;
 
 

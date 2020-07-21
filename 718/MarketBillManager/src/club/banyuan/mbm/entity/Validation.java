@@ -8,8 +8,6 @@ import java.lang.annotation.Target;
 @Target(value = ElementType.FIELD)
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface Validation {
-
   String regex();
-
   String msg();
 }
