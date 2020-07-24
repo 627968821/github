@@ -9,14 +9,11 @@ import club.banyuan.mbm.exception.ValidationException;
 import club.banyuan.mbm.service.BillService;
 import club.banyuan.mbm.service.ProviderService;
 import club.banyuan.mbm.service.UserService;
-import club.banyuan.mbm.uti.ValidationUtil;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
 import java.net.URLDecoder;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -27,6 +24,7 @@ public class SocketHandler extends Thread {
     private UserService userService = new UserService();
     private ProviderService providerService = new ProviderService();
     private BillService billService = new BillService();
+    private static User user = new User();//当前登陆用户
 
     public SocketHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
@@ -35,26 +33,21 @@ public class SocketHandler extends Thread {
     @Override
     public void run() {
         MbmRequest mbmRequest = new MbmRequest();
-
         try {
             // 开启浏览器的流，获取浏览器发送的数据
             InputStream inputStream = clientSocket.getInputStream();
             System.out.println(clientSocket.getInetAddress().getHostAddress());
-
             // 为了有更好的处理方法，将字节流转换为字符流
             // InputStreamReader 字节流到字符流的转换
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
             String line = bufferedReader.readLine();
             if (line == null) {
                 // 建立tcp连接之后，通常不会读取到null，除非连接关闭
                 System.err.println("解析失败");
                 return;
             }
-
             // GET / HTTP1.1
             StringTokenizer tokenizer = new StringTokenizer(line);
-
             mbmRequest.setMethod(tokenizer.nextToken());
             mbmRequest.setPath(URLDecoder.decode(tokenizer.nextToken(), "utf-8"));
 
@@ -95,9 +88,7 @@ public class SocketHandler extends Thread {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-
-        } //                responseFailJson(e.getMessage());
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -115,7 +106,11 @@ public class SocketHandler extends Thread {
      * @param mbmRequest 请求数据的封装对象
      */
     private void process(MbmRequest mbmRequest) throws IOException {
+//        if (mbmRequest.getPath().contains("#")) {
+//            responseResource(mbmRequest);
+//        }
         switch (mbmRequest.getPath()) {
+
             case "/server/user/login": {
                 Map<String, String> formData = mbmRequest.getFormData();
                 if (userService.login(formData.get("name"), formData.get("pwd")) == null) {
@@ -124,6 +119,7 @@ public class SocketHandler extends Thread {
                     // responseRedirect(mbmRequest, "/login.html");
                 } else {
                     // 登录成功，跳转到 bill_list.html
+                    user = userService.getUserByName(formData.get("name"));//获取当前登录的user对象
                     responseRedirect(mbmRequest, "/bill_list.html");
                 }
             }
@@ -140,7 +136,6 @@ public class SocketHandler extends Thread {
                     User user = JSONObject.parseObject(payload, User.class);
                     userList = userService.getUserList(user);
                 }
-
                 responseJson(userList);
             }
             break;
@@ -157,6 +152,7 @@ public class SocketHandler extends Thread {
                 if (user.getId() == 0) {
                     userService.addUser(user);
                 } else {
+                    System.out.println(mbmRequest.getPayload());
                     userService.updateUser(user);
                 }
                 responseRedirect(mbmRequest, "/user_list.html");
@@ -172,6 +168,7 @@ public class SocketHandler extends Thread {
             }
             break;
             case "/server/user/delete": {
+//                modifyAble();
                 String payload = mbmRequest.getPayload();
                 User userId = JSONObject.parseObject(payload, User.class);
                 userService.deleteUserById(userId.getId());
@@ -277,7 +274,6 @@ public class SocketHandler extends Thread {
     private void responseJson(Object object) throws IOException {
         String data = JSONObject.toJSONString(object);
         DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
-
         out.writeBytes("HTTP/1.1 200 OK");
         out.writeBytes("\r\n");
         out.writeBytes("Content-Length: " + data.getBytes().length);
@@ -318,11 +314,6 @@ public class SocketHandler extends Thread {
         // 告知浏览器请求结束，需要再次向请求给定的路径发起请求
         outputStream.write(("Location: " + "http://" + request.getHost() + path).getBytes());
         outputStream.write("\r\n".getBytes());
-
-        // out.writeBytes("HTTP/1.1 302 Found");
-        // out.writeBytes("\r\n");
-        // out.writeBytes("Location: " + "http://" + request.getHost() + path);
-        // out.writeBytes("\r\n");
     }
 
     private void responseResource(MbmRequest mbmRequest) throws IOException {
@@ -331,7 +322,7 @@ public class SocketHandler extends Thread {
             resourcePath = resourcePath.substring(1);
         }
 
-        if (resourcePath.length() == 0) {
+        if (resourcePath.length() == 0 || resourcePath.contains("#")) {//无路径或者以"#"结束
             resourcePath = "pages/login.html";
         } else if (resourcePath.startsWith("css") || resourcePath.startsWith("images") || resourcePath
                 .startsWith("js") || resourcePath.contains(".html")) {
@@ -372,7 +363,43 @@ public class SocketHandler extends Thread {
             bufferedReader.close();
             return;
         }
+        ////////
+        if (resourcePath.contains(".html")) {
+            InputStream inputStream = HttpServer.class.getClassLoader().getResourceAsStream(resourcePath);
+            if (inputStream == null) {
+                inputStream = HttpServer.class.getClassLoader().getResourceAsStream("pages/404.html");
+            }
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String s = bufferedReader.readLine();
+            StringBuilder stringBuilder = new StringBuilder();
+            String name = user.getName();
+            while (s != null) {
+                if (s.contains("<div class=\"welcome\">")) {
+                    if (name != null) {
+                        s = s.replace("admin", name);
+                    }
+                }
+                stringBuilder.append(s);
+//            stringBuilder.append(System.lineSeparator());
+                stringBuilder.append("\n");
+                s = bufferedReader.readLine();
+            }
+            OutputStream outputStream = clientSocket.getOutputStream();
+            outputStream.write("HTTP/1.1 200 OK\r\n".getBytes());
+            if (resourcePath.contains(".html")) {
+                outputStream.write("Content-Type: text/html; charset=utf-8\r\n".getBytes());
+            }
+            String contentLength = "Content-Length: " + stringBuilder.toString().getBytes().length;
+            outputStream.write(contentLength.getBytes());
+            outputStream.write("\r\n".getBytes());
+            outputStream.write("\r\n".getBytes());
+            outputStream.write(stringBuilder.toString().getBytes());
+            inputStream.close();
+            return;
+        }
 
+
+///////
         InputStream resourceAsStream = HttpServer.class.getClassLoader()
                 .getResourceAsStream(resourcePath);
         if (resourceAsStream == null) {
@@ -394,5 +421,11 @@ public class SocketHandler extends Thread {
         outputStream.write("\r\n".getBytes());
         outputStream.write(resourceAsStream.readAllBytes());
         resourceAsStream.close();
+    }
+
+    public static void modifyAble() {
+        if (SocketHandler.user.getUserType() != 1) {
+            throw new FormPostException("权限不足");
+        }
     }
 }

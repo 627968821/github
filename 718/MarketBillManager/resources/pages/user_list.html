@@ -16,8 +16,10 @@
     <li><a href="provider_list.html" target="mainFrame"><img src="images/btn_suppliers.gif"/></a>
     </li>
     <li><a href="user_list.html" target="mainFrame"><img src="images/btn_users.gif"/></a></li>
-    <li><a href="#" onClick="javaScript:alert('这里实现退出操作！')"><img src="images/btn_exit.gif"/></a>
+    <li><a href="login.html"><img src="images/btn_exit.gif"/></a>
     </li>
+<!--    <li><a href="#" onClick="javaScript:alert('这里实现退出操作！')"><img src="images/btn_exit.gif"/></a>-->
+<!--    </li>-->
   </ul>
 </div>
 
@@ -108,12 +110,6 @@
     }
   }
 
-  // post form
-  //name=123&pwd=123456
-
-  // json
-  // {"name":"123", "pwd":"123456"}
-
   $(function () {
     // 页面加载完成后，加载列表数据
     $.ajax({
@@ -142,8 +138,23 @@
         url: "server/user/delete",
         data: JSON.stringify({"id": id}),
         success: function (result) {
+          // if (result.indexOf('DOCTYPE') !== 0) {
+          //   alert("权限不足");
+          //   return;
+          // }
           // 清空表格
           target.remove();
+          $.ajax({
+            type: "post",
+            contentType: "application/json;charset=UTF-8",
+            url: "server/user/list",
+            // data
+            success: function (result) {
+              // 清空表格
+              $("#user-title").nextAll().remove();
+              appendList(result);
+            }
+          });
         }
       });
     })

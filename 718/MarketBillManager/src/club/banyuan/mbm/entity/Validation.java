@@ -10,4 +10,5 @@ import java.lang.annotation.Target;
 public @interface Validation {
   String regex();
   String msg();
+  boolean isRequired() default true;
 }

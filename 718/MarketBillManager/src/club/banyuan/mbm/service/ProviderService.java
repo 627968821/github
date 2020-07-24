@@ -55,11 +55,7 @@ public class ProviderService {
     }
 
     public void addSupplier(Provider provider) {//添加供应商
-        try {
-            ValidationUtil.validate(provider);
-        } catch (MbmException e) {
-            throw new ValidationException(e.getMessage());
-        }
+
         if (isExist(provider)) {
             throw new FormPostException("供应商已存在");
         } else {
@@ -135,5 +131,8 @@ public class ProviderService {
     public Provider getProviderById(int id) {
         List<Provider> collect = providerList.stream().filter(provider -> provider.getId() == id).collect(Collectors.toList());
         return collect.get(0);
+    }
+    public void validation(){
+
     }
 }

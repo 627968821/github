@@ -3,6 +3,9 @@ package club.banyuan.mbm.service;
 import club.banyuan.mbm.entity.User;
 import club.banyuan.mbm.exception.BadRequestException;
 import club.banyuan.mbm.exception.FormPostException;
+import club.banyuan.mbm.exception.MbmException;
+import club.banyuan.mbm.exception.ValidationException;
+import club.banyuan.mbm.server.SocketHandler;
 import club.banyuan.mbm.uti.PropUtil;
 import club.banyuan.mbm.uti.ValidationUtil;
 import com.alibaba.fastjson.JSONObject;
@@ -10,10 +13,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.net.Socket;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -126,6 +127,7 @@ public class UserService {
   // 每个线程都会创建一个userService的对象
   // synchronized public void addUser(User user) {
   public void addUser(User user) {
+    SocketHandler.modifyAble();
     validate(user);
     synchronized (userList) {
       user.setId(userId++);
@@ -138,23 +140,14 @@ public class UserService {
   // 用户名，不能包含特殊字符 !@#$%^&*()
   // userType 必须是 0 或1
   private void validate(User user) {
-    if (!user.getPwd().equals(user.getPwdConfirm())) {
-      throw new FormPostException("密码不一致");
-    }
     try {
       ValidationUtil.validate(user);
     } catch (Exception e) {
       throw new FormPostException(e.getMessage());
     }
-    //
-    // boolean matches = user.getPwd().matches("\\w{6,15}");
-    // if (!matches) {
-    //   throw new FormPostException("密码不规范");
-    // }
-    // boolean matches1 = user.getName().matches("[^!@#$%^&*()]");
-    // if (!matches1) {
-    //   throw new FormPostException("用户名不规范");
-    // }
+    if (!user.getPwd().equals(user.getPwdConfirm())) {
+      throw new FormPostException("密码不一致");
+    }
   }
 
 
@@ -199,20 +192,17 @@ public class UserService {
 
     Optional<User> first = userList.stream().filter(user -> user.getId() == Integer.parseInt(id))
         .findFirst();
-
-    // return first.orElse(null);
-
     if (first.isPresent()) {
       return first.get();
     }
     return null;
-
-    // return collect.get(0);
   }
 
   public void updateUser(User user) {
+    SocketHandler.modifyAble();
     synchronized (userList) {
       User userById = getUserById(user.getId());
+      validate(user);
       userById.setUserType(user.getUserType());
       userById.setName(user.getName());
       userById.setPwd(user.getPwd());
@@ -246,6 +236,7 @@ public class UserService {
   }
 
   public void deleteUserById(int id) {
+    SocketHandler.modifyAble();
     List<User> list = new ArrayList<>();
     synchronized (userList) {
       for (User user : userList) {
@@ -260,8 +251,13 @@ public class UserService {
     }
 
   }
-
+public User getUserByName(String name){//根据姓名获得User对象
+  List<User> collect=new LinkedList<>();
+   collect = userList.stream().filter(user -> user.getName().equals(name)).collect(Collectors.toList());
+  return collect.get(0);
+}
   public void deleteUserByIdRefine(int id) {
+    SocketHandler.modifyAble();
     User userById = getUserById(id);
     userList.remove(userById);
   }
