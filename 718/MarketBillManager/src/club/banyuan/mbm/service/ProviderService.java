@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class ProviderService {
+public class ProviderService extends ValidationUtil{
     private static int providerId;
     private static List<Provider> providerList;
     public static final String PROVIDER_STORE_PATH = "provider.store.path";
@@ -55,7 +55,7 @@ public class ProviderService {
     }
 
     public void addSupplier(Provider provider) {//添加供应商
-
+        ValidationUtil.validate(provider);
         if (isExist(provider)) {
             throw new FormPostException("供应商已存在");
         } else {
@@ -75,16 +75,16 @@ public class ProviderService {
     }
 
     public List<Provider> getProviderList(Provider provider) {//根据provider对象检索返回链表
-        if (provider.getName() == null && provider.getDesc().trim().length() == 0) {
+        if (provider.getName() == null && provider.getDescs().trim().length() == 0) {
             return getProviderList();
         }
         List<Provider> providerList = new LinkedList<>();
         for (Provider pro : getProviderList()) {
-            if (pro.getName().contains(provider.getName()) && pro.getDesc().contains(provider.getDesc())) {
+            if (pro.getName().contains(provider.getName()) && pro.getDescs().contains(provider.getDescs())) {
                 providerList.add(pro);
-            } else if (provider.getName() == null && pro.getDesc().contains(provider.getDesc())) {
+            } else if (provider.getName() == null && pro.getDescs().contains(provider.getDescs())) {
                 providerList.add(pro);
-            } else if (provider.getDesc() == null && pro.getName().contains(provider.getName())) {
+            } else if (provider.getDescs() == null && pro.getName().contains(provider.getName())) {
                 providerList.add(pro);
             }
         }
@@ -109,14 +109,10 @@ public class ProviderService {
     }
 
     public List<Provider> upDateProvider(Provider provider) {//更新
-        try {
-            ValidationUtil.validate(provider);//校验电话号码是否合法
-        } catch (Exception e) {
-            throw new FormPostException(e.getMessage());
-        }
+        ValidationUtil.validate(provider);
         Provider providerById = getProviderById(provider.getId());
         providerById.setContactPerson(provider.getContactPerson());
-        providerById.setDesc(provider.getDesc());
+        providerById.setDescs(provider.getDescs());
         providerById.setPhone(provider.getPhone());
         providerById.setName(provider.getName());
         save();
@@ -128,11 +124,10 @@ public class ProviderService {
         save();
         return getProviderList();
     }
+
     public Provider getProviderById(int id) {
         List<Provider> collect = providerList.stream().filter(provider -> provider.getId() == id).collect(Collectors.toList());
         return collect.get(0);
     }
-    public void validation(){
 
-    }
 }

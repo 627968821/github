@@ -322,7 +322,7 @@ public class SocketHandler extends Thread {
             resourcePath = resourcePath.substring(1);
         }
 
-        if (resourcePath.length() == 0 || resourcePath.contains("#")) {//无路径或者以"#"结束
+        if (resourcePath.length() == 0 ) {
             resourcePath = "pages/login.html";
         } else if (resourcePath.startsWith("css") || resourcePath.startsWith("images") || resourcePath
                 .startsWith("js") || resourcePath.contains(".html")) {

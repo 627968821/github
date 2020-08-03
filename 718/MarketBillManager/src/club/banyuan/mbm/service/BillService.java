@@ -3,6 +3,7 @@ package club.banyuan.mbm.service;
 import club.banyuan.mbm.entity.Bill;
 import club.banyuan.mbm.entity.Provider;
 import club.banyuan.mbm.uti.PropUtil;
+import club.banyuan.mbm.uti.ValidationUtil;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
@@ -52,6 +53,7 @@ public class BillService {
     }
 
     public void addBill(Bill bill) {
+        ValidationUtil.validate(bill);
         billList.add(bill);
         bill.setId(billId);
         billId++;
@@ -93,6 +95,7 @@ public class BillService {
         }
     }
     public void updateBill(Bill bill) {
+        ValidationUtil.validate(bill);
         Bill billById = getBillById(bill.getId());
         billById.setProduct(bill.getProduct());
         billById.setMoney(bill.getMoney());

@@ -128,7 +128,8 @@ public class UserService {
   // synchronized public void addUser(User user) {
   public void addUser(User user) {
     SocketHandler.modifyAble();
-    validate(user);
+//    validate(user);
+    ValidationUtil.validate(user);
     synchronized (userList) {
       user.setId(userId++);
       userList.add(user);
@@ -200,9 +201,10 @@ public class UserService {
 
   public void updateUser(User user) {
     SocketHandler.modifyAble();
+    ValidationUtil.validate(user);
     synchronized (userList) {
       User userById = getUserById(user.getId());
-      validate(user);
+//      validate(user);
       userById.setUserType(user.getUserType());
       userById.setName(user.getName());
       userById.setPwd(user.getPwd());

@@ -108,32 +108,34 @@ public class MbmRequest {
   // name  123   pwd  123
   public Map<String, String> getFormData() {
     Map<String, String> rlt = null;
-    try {
-//        rlt = new HashMap<>();
-//        String[] params = payload.split("&");
-//        for (String param : params) {
-//          String[] keyValue = param.split("=");
-//          if(keyValue[1]==null){
+//    try {
+        rlt = new HashMap<>();
+        String[] params = payload.split("&");
+        for (String param : params) {
+          String[] keyValue = param.split("=");
+          String[] newStr=new String[2];
+          if(keyValue.length==1){
+            newStr[0]=keyValue[0];
 //            throw new BadRequestException("输入不能为空");
-//          }
-//          rlt.put(keyValue[0], keyValue[1]);
-//        }
-      StringTokenizer stringTokenizer = new StringTokenizer(payload, "&|=");
-      rlt = new HashMap<>();
-      while (stringTokenizer.hasMoreTokens()) {
-        rlt.put(stringTokenizer.nextToken(), stringTokenizer.nextToken());
-      }
-      for (String s : rlt.keySet()) {
-        System.out.println(s);
-        System.out.println(rlt.get(s));
-      }
-    } catch (Exception e) {
-      throw new BadRequestException("输入不能为空");
-    }
+            newStr[1]="";
+            rlt.put(newStr[0],newStr[1]);
+          }else {
+            rlt.put(keyValue[0], keyValue[1]);
+          }
+        }
+
+//      StringTokenizer stringTokenizer = new StringTokenizer(payload, "&|=");
+//      rlt = new HashMap<>();
+//      while (stringTokenizer.hasMoreTokens()) {
+//        rlt.put(stringTokenizer.nextToken(), stringTokenizer.nextToken());
+//      }
+//      for (String s : rlt.keySet()) {
+//        System.out.println(s);
+//        System.out.println(rlt.get(s));
+//      }
+//    } catch (Exception e) {
+//      throw new BadRequestException("输入不能为空");
+//    }
     return rlt;
   }
-
-  // public <T> T getFormData(Class<T> cls) {
-  //
-  // }
 }

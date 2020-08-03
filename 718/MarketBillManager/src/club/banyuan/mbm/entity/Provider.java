@@ -4,10 +4,11 @@ import java.util.Objects;
 
 public class Provider {
     private int id;
+    @Validation(regex = "[^!@#$%^&*()?]*", msg = "供应商姓名不合法或供应商姓名为空", isRequired = true)
     private String name;
-    private String desc;
+    private String descs;
     private String contactPerson;
-    @Validation (regex="[1][358][0-9]{9}",msg = "手机号不合法")
+    @Validation(regex = "[1][358][0-9]{9}", msg = "手机号不合法", isRequired = false)
     private String phone;
 
 
@@ -23,16 +24,17 @@ public class Provider {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescs() {
+        return descs;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescs(String descs) {
+        this.descs = descs;
     }
 
     public String getContactPerson() {

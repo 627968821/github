@@ -1,7 +1,12 @@
 package club.banyuan.mbm.entity;
 
+import club.banyuan.mbm.uti.JdbcUtil;
+import com.alibaba.fastjson.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+import java.util.Objects;
 
 public class Bill {
     private int id;
@@ -10,7 +15,9 @@ public class Bill {
     private String product;//商品描述
     private int isPay;
     private String isPayStr;
+    private String providerName;
     private String updateTime;
+
 
     public String getIsPayStr() {
         return isPayStr;
@@ -46,14 +53,18 @@ public class Bill {
         updateTime=time.format(date);
     }
 
-    private String providerName;
-
     public String getProviderName() {
         return providerName;
     }
 
-    public void setProviderName(String providerName) {
-        this.providerName = providerName;
+    public void setProviderName() {
+        String sql = "select id,name,descs,contactPerson,phone from Provider where id = ?";
+        Map<String, Object> map = JdbcUtil.queryOne(sql, providerId);
+        Provider provider = JSONObject.parseObject(JSONObject.toJSONString(map), Provider.class);
+        this.providerName = provider.getName();
+    }
+    public void setProviderName(String providerName){
+        this.providerName=providerName;
     }
 
     public int getId() {
@@ -94,5 +105,18 @@ public class Bill {
 
     public void setIsPay(int isPay) {
         this.isPay = isPay;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bill bill = (Bill) o;
+        return id == bill.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
