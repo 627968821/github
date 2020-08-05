@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        #login {
+            position: relative;
+            right: 20%;
+            left: 20%;
+            top: 20%;
+            line-height: 1.1cm;
+        }
+
+        a {
+            font-size: small;
+        }
+
+        #userlogin {
+            color: blue;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+<div id="login">
+    <div id="picture" style="float: left"><img alt="" src="images/img1.jpg"></div>
+    <div style="position: relative;top: 20px">
+        <div id="userlogin" style="position: relative;left: 20px">用户登录</div>
+        <form action="#">
+            <div id="user" style="position: relative;left: 30px">用户名:<input style="color: darkgray" type="text"
+                                                                            value="常用邮箱"></div>
+            <div id="pwd" style="position: relative;left: 46px">密码:<input style="color: darkgray" type="text"
+                                                                          value="密码"></div>
+            <div id="verification" style="position: relative;left: 30px;">验证码:<input style="width:2cm;color: darkgray" type="text"
+                                                                                     value="验证码"><img
+                    alt="验证码" src="images/img2.jpg" style="width:2cm; position: relative;top:6px"><a href="#">看不清</a>
+            </div>
+            <div><input id="checkbox" name="" style="position: relative;left: 30px" type="checkbox"><span
+                    style="position: relative;left: 30px">下次自动登录</span></div>
+            <div style="position: relative;left: 30px"><input style="background-image: url(images/butto.jpg);width: 80px" type="submit"
+                                                              value="登录"><input
+                    style="background-image: url(images/butto.jpg);width: 80px" type="submit" value="注册"><a href="#">忘记密码?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
