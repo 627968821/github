@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a id="anchor" href="http://www.baidu.com">百度</a>
+<br/>
+<input type="text" id="username"/>
+
+<script>
+    document.getElementById("anchor").href="http://www.qq.com";
+    // document.getElementById("username").value="请输入用户名";
+    document.getElementById("username").setAttribute("value","input usenname");
+    document.getElementById("anchor").style.color = "red";
+    document.getElementById("anchor").style.textDecoration = "none";
+</script>
+</body>
+</html>

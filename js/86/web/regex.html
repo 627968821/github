@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="password" id="pwd" onblur="validate()"/>
+<script>
+    function validate() {
+        var pwd = document.getElementById("pwd").value;
+        var result = /\w{6,13}/.test(pwd);
+        console.log(result);
+    }
+</script>
+</body>
+</html>

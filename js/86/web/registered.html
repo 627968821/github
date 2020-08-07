@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style type="text/css">
+        body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #d1 {
+            width: 300px;
+            height: 500px;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        #d2 {
+
+            position: relative;
+            text-align: right;
+            /*background-color: blue;*/
+            height: 700px;
+        }
+
+        #reg {
+            background-image: url("images/butto.jpg");
+        }
+
+        d2 {
+            text-align: right;
+        }
+
+        d2 font {
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+<div id="d1">
+    <h1 style="color: lightblue">用户注册</h1>
+    <div id="d2">
+        *用户名：<input type="text" onblur="validateName()" id="user"><br>
+        <p style="color: red;font-size: 2px" id="username"></p>
+        *密码：<input type="password" onblur="validatePwd()" id="pas"><br>
+        <p style="color: red;font-size: 2px" id="pwd"></p>
+        *身份证：<input type="text" onblur="validateIdentity()" id="idf"><br>
+        <p style="color: red;font-size: 2px" id="identity"></p>
+        *电话号码：<input type="text" id="num" onblur="validatePhone()"><br>
+        <p style="color: red;font-size: 2px" id="phone"></p>
+        *住址 <input type="text"><br>
+        *邮政编码 <input type="text"><br>
+        验证码 <input type="text">
+        <img src="images/img2.jpg" alt="验证码">
+        <a href="">看不清</a><br>
+        <input type="checkbox" value="">我同意<a href="">服务条款</a><br>
+        <p><a href=""><input type="submit" value="立即注册" id="reg"></a></p>
+        </form>
+    </div>
+</div>
+<script>
+    function validateName() {
+        var name = document.getElementById("user").value;
+        var test = /\w{6,13}/.test(name);
+        if (!test) {
+            document.getElementById("username").innerHTML = "用户名要求不少于6个字符";
+        } else {
+            document.getElementById("username").innerHTML = "";
+        }
+    }
+
+    function validatePwd() {
+        var name = document.getElementById("pas").value;
+        var test = /\w{6,13}/.test(name);
+        if (!test) {
+            document.getElementById("pwd").innerHTML = "密码不少于6个字符";
+        }else {
+            document.getElementById("pwd").innerHTML = "";
+        }
+    }
+
+    function validateIdentity() {
+        var name = document.getElementById("idf").value;
+        var test = /[0-9]{18}/.test(name);
+        if (!test) {
+            document.getElementById("identity").innerHTML = "身份证格式错误";
+        }else {
+            document.getElementById("identity").innerHTML = "";
+        }
+    }
+
+    function validatePhone() {
+        var name = document.getElementById("num").value;
+        var test = /[0-9]{11}/.test(name);
+
+        if (!test) {
+            document.getElementById("phone").innerHTML = "电话号码格式错误";
+        }else {
+            document.getElementById("phone").innerHTML = "";
+        }
+    }
+</script>
+</body>
+</html>

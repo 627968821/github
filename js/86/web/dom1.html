@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+    // innerHTML：会将字符串中的内容，当做是html源码处理，所以会把<h1>当做是标题标签处理
+    // innterText:只是显示字符串中的内容，不会做额外处理
+    document.getElementById("demo1").innerHTML="<h1>Hello World!</h1>";
+    document.getElementById("demo2").innerText="<h1>Hello XXXXXX!</h1>";
+</script>
+</body>
+</html>

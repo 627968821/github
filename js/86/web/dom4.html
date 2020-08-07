@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list">
+    <li>AAA</li>
+    <li>CCC</li>
+    <li>FFF</li>
+</ul>
+<form name="form1">
+<input type="button" id="btn" name="btn" value="按钮"/>
+</form>
+<script>
+    var e = document.createElement("li"); // <li></li>
+    e.innerHTML= "123321";
+    document.getElementById("list").appendChild(e);
+
+    var e2 = document.createElement("a");
+    e2.innerText = "QQ";
+    e2.setAttribute("href","http://www.qq.com");
+
+    document.getElementById("list").append(e2);
+
+
+    var liArray =document.getElementById("list").childNodes;
+    for(var i=0;i<liArray.length;i++){
+        console.log(liArray[i].nodeName);
+    }
+
+    var liArray = document.getElementsByTagName("li");
+    document.getElementById("list").removeChild(liArray[0]);
+
+    var e3 = document.createElement("li"); // <li></li>
+    e3.innerHTML= "789987";
+    document.getElementById("list").replaceChild(e3,liArray[1]);
+
+    // document.getElementById("btn").onclick=function () {
+    //     alert("Hello World!!");
+    // }
+
+    var func = function  btnclick() {
+        alert("Hello XXXX!");
+    }
+    // document.getElementById("btn").onclick = func;
+
+   document.forms["form1"]["btn"].onclick = func;
+</script>
+</body>
+</html>

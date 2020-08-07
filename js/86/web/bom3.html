@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="p1"></p>
+<input type="button" onclick="stopShowTime()" />
+<script>
+    var intervalObj = setInterval(showTime,1000);
+    function showTime() {
+        document.getElementById("p1").innerHTML = new Date();
+    }
+    function  stopShowTime() {
+        clearInterval(intervalObj);
+    }
+</script>
+</body>
+</html>

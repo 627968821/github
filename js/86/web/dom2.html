@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<p id="demo1" class="mystyle" name="px">AAA</p>
+<p id="demo2" name="px">CCC</p>
+<p id="demo3"  class="mystyle">HHH</p>
+<p id="demo4">XXX</p>
+<script>
+    var pArray = document.getElementsByTagName("p");
+    console.log(pArray.length);
+    for(var i=0;i<pArray.length;i++){
+        console.log(pArray[i].innerHTML);
+    }
+    console.log(document.getElementsByName("px").length);
+
+    console.log(document.getElementsByClassName("mystyle").length);
+
+</script>
+</body>
+</html>
