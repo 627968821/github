@@ -53,8 +53,10 @@
                 f();
             });
             $("#13").click(function () {
-                $("#13").parent().parent().remove();
-                f();
+                if (confirm("确定要删除？")) {
+                    $("#13").parent().parent().remove();
+                    f();
+                }
             });
 
 
@@ -82,8 +84,11 @@
                 f();
             });
             $("#23").click(function () {
-                $("#23").parent().parent().remove();
-                f();
+                if (confirm("确定要删除？")) {
+                    $("#23").parent().parent().remove();
+                    f();
+                }
+
             });
 
 
@@ -111,18 +116,24 @@
                 f();
             });
             $("#33").click(function () {
-                $("#33").parent().parent().remove();
-                f();
+                if (confirm("确定要删除？")) {
+                    $("#33").parent().parent().remove();
+                    f();
+                }
+
             });
             $("#deleteAll").click(function () {
-                console.log($("input.checkbox").length);
-                var box = $("input.checkbox");
-                for (i = 0; i < box.length; i++) {
-                    if (box[i].checked === true) {
-                        $(box[i]).parent().parent().remove();
+                if (confirm("确定要删除？")) {
+                    console.log($("input.checkbox").length);
+                    var box = $("input.checkbox");
+                    for (i = 0; i < box.length; i++) {
+                        if (box[i].checked === true) {
+                            $(box[i]).parent().parent().remove();
+                        }
                     }
+                    f();
                 }
-                f();
+
             });
 
             function f() {
