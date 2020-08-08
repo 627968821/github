@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    jquery:-->
+<!--        1、js的库  -&#45;&#45; 外部js文件-->
+<!--        2、使用步骤：-->
+<!--            a、引入外部js文件-->
+<!--            b、jquery代码写在ready事件响应函数中-->
+<!--        $(document).ready(function(){})-->
+<!--        $(document)获取document对象-->
+<!--        ready事件，类似于js中onload事件，页面加载时调用，-->
+<!--                    不同于onload的地方是：不用等到页面全部加载完成再调用-->
+<!--        参数function(){}，ready事件响应函数-->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 自定义jquery代码位置
+           // alert("dsfsd");
+
+            $("p").css("color","red");
+            $("#p1").css("font-size",50);
+            $(".p2class").css("background-color","Green");
+
+            for(i=0;i< $("[name='fav']").length;i++){
+               console.log($("[name='fav']")[i].checked);
+               $("[name='fav']")[i].checked=true;
+            }
+
+            $("#p1").click(function(){
+                alert("dsfsdf");
+            });
+
+            var i=1;
+            $("#btn").click(function () {
+                i++;
+                if(i%2==0) {
+                    $("#p1").hide();
+                }else{
+                    $("#p1").show();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<p id="p1">第一段</p>
+<p class="p2class">第二段</p>
+<p>第三段</p>
+<p>第四段</p>
+
+<input id="btn" type="button" value="显示/隐藏">
+<br/>
+
+<input type="checkbox" name="fav" checked/>AAA
+<input type="checkbox" name="fav" />BBB
+<input type="checkbox" name="fav" />CCC
+
+</body>
+</html>

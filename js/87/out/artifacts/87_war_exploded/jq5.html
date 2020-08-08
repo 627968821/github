@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pfont{
+            color: red;
+            font-size: 40px;
+            font-weight: 900;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#btn").click(function () {
+                $("#p1").addClass("pfont");
+           });
+           $("#btn2").click(function () {
+               $("#p1").removeClass("pfont");
+           });
+           $("#btn3").click(function(){
+               $("#p1").toggleClass("pfont");
+           });
+        });
+    </script>
+</head>
+<body>
+<p id="p1">第一段</p>
+<br/>
+<input type="button" value="添加样式" id="btn"/>
+<input type="button" value="取消样式" id="btn2"/>
+<input type="button" value="样式切换" id="btn3" />
+<br/>
+</body>
+</html>

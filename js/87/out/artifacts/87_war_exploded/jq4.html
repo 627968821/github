@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#btn").click(function () {
+                $("#p1").remove();
+           });
+           $("#btn2").click(function () {
+               $("#p1").empty();
+           });
+        });
+    </script>
+</head>
+<body>
+<p id="p1">第一段</p>
+<br/>
+<input type="button" value="remove删除p" id="btn"/>
+<input type="button" value="empty删除p" id="btn2"/>
+<br/>
+</body>
+</html>

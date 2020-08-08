@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            clear: both;
+        }
+        li{
+            float: left;
+            list-style: none;
+            margin-bottom: 20px;
+            margin-right: 15px;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#selAll").click(function () {
+                var flag = this.checked;
+                $(".cartRow [type='checkbox']").each(function () {
+                    this.checked = flag;
+                });
+            });
+            $("#reduce").click(function () {
+              var num=$("#num").val();
+              num--;
+              if(num<=1){
+                  num=1;
+              }
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="checkbox" id="selAll"/>全选
+<div>
+    <ul class="cartRow" id="1">
+        <li><input type="checkbox"/> </li>
+        <li>商品A</li>
+        <li><strong name="price">¥10.00</strong></li>
+        <li><button name="reduce">-</button></li>
+        <li><input type="text" name="num" value="1"></li>
+        <li><button name="increase">+</button></li>
+        <li><strong name="totalPrice">¥10.00</strong></li>
+        <li><button name="delete">删除</button></li>
+    </ul>
+    <ul class="cartRow" id="2">
+        <li><input type="checkbox"/> </li>
+        <li>商品B</li>
+        <li><strong>¥</strong><strong name="price">10.00</strong></li>
+        <li><button name="reduce">-</button></li>
+        <li><input type="text" name="num" value="1"></li>
+        <li><button name="increase">+</button></li>
+        <li><strong>¥</strong><strong name="totalPrice">10.00</strong></li>
+        <li><button name="delete">删除</button></li>
+    </ul>
+    <ul class="cartRow" id="3">
+        <li><input type="checkbox"/> </li>
+        <li>商品C</li>
+        <li><strong>¥</strong><strong name="price">10.00</strong></li>
+        <li><button name="reduce">-</button></li>
+        <li><input type="text" name="num" value="1"></li>
+        <li><button name="increase">+</button></li>
+        <li><strong>¥</strong><strong name="totalPrice">10.00</strong></li>
+        <li><button name="delete">删除</button></li>
+    </ul>
+    <ul>
+        <li><button name="deleteAll">删除选中的商品</button></li>
+        <li><div>总价:¥<strong name="totalSum">30.00</strong></div></li>
+    </ul>
+</div>
+</body>
+</html>
