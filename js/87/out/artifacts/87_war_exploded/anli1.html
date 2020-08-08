@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            clear: both;
+        }
+        li{
+            float: left;
+            list-style: none;
+            margin-bottom: 20px;
+            margin-right: 15px;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#selAll").click(function () {
+                var flag = this.checked;
+                $(".cartRow [type='checkbox']").each(function () {
+                    this.checked = flag;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="checkbox" id="selAll"/>全选
+<div>
+<ul class="cartRow">
+    <li><input type="checkbox"/> </li>
+    <li>商品A</li>
+</ul>
+<ul class="cartRow">
+    <li><input type="checkbox"/> </li>
+    <li>商品B</li>
+</ul>
+<ul class="cartRow">
+    <li><input type="checkbox"/> </li>
+    <li>商品C</li>
+</ul>
+</div>
+</body>
+</html>

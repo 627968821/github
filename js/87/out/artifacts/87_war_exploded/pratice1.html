@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var num = $("#3").val();
+           var price= $("#1").text();
+            $("#2").click(function () {
+                num--;
+                if(num<=0){
+                    num=0;
+                }
+                $("#3").attr("value",num);
+                $("#5").text(num*price);
+            })
+            $("#4").click(function () {
+                num++;
+                $("#3").attr("value",num);
+                $("#5").text(num*price);
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<p id="1">10.10</p><br>
+<button id="2">-</button>
+<input type="text" value="0" id="3">
+<button id="4">+</button>
+<p id="5" style="text">10.00</p>
+</body>
+</html>
