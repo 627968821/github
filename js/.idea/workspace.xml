@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3a80b4ed-e226-4b09-abbd-c6152cc1e610" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../718/MarketBillManager/MarketBillManager718.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/814.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/DAO步骤" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/dao/IBaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/dao/impl/BaseDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/dao/util/DataSourceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/test/TestProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/club/banyuan/test/TestUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/DAO步骤" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/IBaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/impl/BaseDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/impl/ProductDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/dao/util/DataSourceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/pojo/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/test/TestJdbcMetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/test/TestProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/test/TestProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/test/TestReflect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/club/banyuan/test/TestUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/814/src/src/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/815.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/DAO步骤" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/IBaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/impl/BaseDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/impl/ProductDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/dao/util/DataSourceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/pojo/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/test/TestJdbcMetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/test/TestProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/test/TestProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/test/TestReflect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/club/banyuan/test/TestUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/815/src/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/88.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/anli1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/homework.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/jq7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/js/jquery-1.11.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/pratice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/88/web/pratice1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/.idea/artifacts/89_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/89.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/89/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javaweb/javaweb.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/87/web/homework.html" beforeDir="false" afterPath="$PROJECT_DIR$/87/web/homework.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1g78HZzpZHuWuawDSqEbSvHUWge" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lib/hamcrest-core-1.3.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\86187\github\js\815" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TestUserDao.testAddUser">
+    <configuration name="TestJdbcMetaData.testMetaData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="815" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.banyuan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="club.banyuan.test" />
+      <option name="MAIN_CLASS_NAME" value="club.banyuan.test.TestJdbcMetaData" />
+      <option name="METHOD_NAME" value="testMetaData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestJdbcMetaData.testTableToClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="815" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.banyuan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="club.banyuan.test" />
+      <option name="MAIN_CLASS_NAME" value="club.banyuan.test.TestJdbcMetaData" />
+      <option name="METHOD_NAME" value="testTableToClass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDao.testAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="815" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.banyuan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="club.banyuan.test" />
+      <option name="MAIN_CLASS_NAME" value="club.banyuan.test.TestUserDao" />
+      <option name="METHOD_NAME" value="testAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDao.testGetUserByUsernameAndPwd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="815" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="club.banyuan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="club.banyuan.test" />
+      <option name="MAIN_CLASS_NAME" value="club.banyuan.test.TestUserDao" />
+      <option name="METHOD_NAME" value="testGetUserByUsernameAndPwd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestUserDao.testAddUser" />
+        <item itemvalue="JUnit.TestUserDao.testGetUserByUsernameAndPwd" />
+        <item itemvalue="JUnit.TestJdbcMetaData.testTableToClass" />
+        <item itemvalue="JUnit.TestJdbcMetaData.testMetaData" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a80b4ed-e226-4b09-abbd-c6152cc1e610" name="Default Changelist" comment="" />
+      <created>1597454182505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597454182505</updated>
+      <workItem from="1597454183780" duration="1044000" />
+      <workItem from="1597626324353" duration="1258000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="237" y="0" key="#Project_Structure" timestamp="1597454470389">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="237" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1597454470389" />
+    <state x="433" y="153" key="FileChooserDialogImpl" timestamp="1597454467806">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="433" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597454467806" />
+    <state width="1493" height="158" key="GridCell.Tab.0.bottom" timestamp="1597628812969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597628812969" />
+    <state width="1493" height="158" key="GridCell.Tab.0.center" timestamp="1597628812969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597628812969" />
+    <state width="1493" height="158" key="GridCell.Tab.0.left" timestamp="1597628812969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597628812969" />
+    <state width="1493" height="158" key="GridCell.Tab.0.right" timestamp="1597628812969">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="158" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597628812969" />
+    <state x="166" y="18" key="new project wizard" timestamp="1597628810085">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="166" y="18" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1597628810085" />
+  </component>
+</project>

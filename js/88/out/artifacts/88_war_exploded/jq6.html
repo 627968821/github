@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("#btn").click(function () {
+                var node = $("#p1").parent();
+                console.log(node);
+           });
+           $("#btn2").click(function () {
+                var liArray = $("ul").children();
+                for(i=0;i<liArray.length;i++){
+                    // liArray[i] : 对象类型是dom对象
+                    // text()方法是jquery为jquery中的对象提供的
+                    // 将dom对象转换成jquery的对象 -- $(dom对象)
+                    console.log($(liArray[i]).text());
+                }
+           });
+           $("#btn3").click(function(){
+               var nextNode = $("#p1").next();
+               console.log(nextNode);
+           });
+           $("#btn4").click(function () {
+                console.log($("ul li").eq(1).text());
+                console.log($("input").filter("#btn4").val());
+           });
+        });
+    </script>
+</head>
+<body>
+<p id="p1">第一段</p>
+<ul>
+    <li>AAA</li>
+    <li>CCC</li>
+    <li>FFF</li>
+</ul>
+<br/>
+<input type="button" value="父元素" id="btn"/>
+<input type="button" value="子元素" id="btn2"/>
+<input type="button" value="向下的兄弟元素" id="btn3"/>
+<input type="button" value="指定的li" id="btn4"/>
+<br/>
+</body>
+</html>

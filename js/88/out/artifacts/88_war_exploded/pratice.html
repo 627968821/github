@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#0").click(function () {
+                var aa = $("#0").prop("checked");
+                 $("input").each(function(){
+                     this.checked = aa;
+                 });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<input type="checkbox" id="0">全选
+<input type="checkbox" id="1">
+<input type="checkbox" id="2">
+<input type="checkbox" id="3">
+<input type="checkbox" id="4">
+<input type="checkbox" id="5">
+<input type="checkbox" id="6">
+<input type="checkbox" id="7">
+</body>
+
+</html>

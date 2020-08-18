@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log($("#p1").text());
+            console.log($("#p2").html());
+            console.log($("#username").val());
+
+            $("#btn").click(function(){
+                $("#p1").text("新的第一段文字");
+                $("#p2").html("<span style=\" color:red\">新的第二段文字</span>");
+                // $("#username").val("新的值");
+
+                console.log($("#username").attr("value"));
+                $("#username").attr("value","使用attr方法重新赋值");
+            });
+        });
+    </script>
+</head>
+<body>
+<p id="p1">第一段</p>
+<p id="p2"><span style="font-size: 30px">第二段</span> </p>
+<input type="text" id="username" value="默认值"/>
+
+<input type="button" id="btn" value="setValue"/>
+</body>
+</html>
