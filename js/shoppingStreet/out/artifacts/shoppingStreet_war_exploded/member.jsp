@@ -102,9 +102,9 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
         	<span class="fl">你好:<a href=<%
-                    User user=(User) request.getAttribute("user");
+                    User user=(User) session.getAttribute("user");
                     if(user!=null){
-                        out.print("member.jsp");
+                        out.print("address.do+?"+user.getId());
                     }else {
                         out.print("login.jsp");
                     }
@@ -213,7 +213,13 @@
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                 	<li><a href="Member_Order.html">我的订单</a></li>
-                    <li><a href="Member_Address.html">收货地址</a></li>
+                    <li><a href=<%
+                        if(user!=null){
+                            out.print("address.do?"+user.getId());
+                        }else {
+                            out.print("login.jsp");
+                        }
+                    %>>收货地址</a></li>
                     <li><a href="#">缺货登记</a></li>
                     <li><a href="#">跟踪订单</a></li>
                 </ul>

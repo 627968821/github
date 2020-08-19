@@ -26,4 +26,13 @@ public class UserServiceImpl implements UserService {
         DataSourceUtil.closeConnection(conn);
         return newUser;
     }
+
+    @Override
+    public User useMsg(String userName) throws Exception {
+        Connection conn = DataSourceUtil.openConnection();
+        UserDao userDao=new UserDaoImpl(conn);
+        User user=userDao.getUserByUserName(userName);
+        DataSourceUtil.closeConnection(conn);
+        return user;
+    }
 }

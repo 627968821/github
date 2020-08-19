@@ -5,6 +5,7 @@ import club.banyuan.pojo.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
@@ -41,6 +42,18 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
         user.setId(id);
 
         closeResource();
+        return user;
+    }
+
+    @Override
+    public User getUserByUserName(String userName) throws Exception {
+        String sql="select *from user where loginName=?";
+        User user=null;
+        ResultSet resultSet = executeQuery(sql, new Object[]{userName});
+        if(resultSet.next()){
+            user=tableToClass(resultSet);
+        }
+        this.closeResource();
         return user;
     }
 

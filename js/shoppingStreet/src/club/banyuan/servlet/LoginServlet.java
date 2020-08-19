@@ -22,11 +22,12 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = userService.login(username,password);
             if(user!=null) {
-                request.setAttribute("user",user);
+                request.getSession().setAttribute("user",user);
+                request.getSession().setMaxInactiveInterval(10);
                 url ="index.jsp";
             }
             else{
-                request.setAttribute("errorMsg","用户名或密码错误");
+                request.getSession().setAttribute("errorMsg","用户名或密码错误");
             }
         } catch (Exception exception) {
             exception.printStackTrace();

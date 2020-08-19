@@ -81,7 +81,7 @@
                      </tr>
                      <tr>
                          <td colspan="2"><%
-                             Object msg = request.getAttribute("errorMsg");
+                             Object msg = session.getAttribute("errorMsg");
                              out.println(msg==null?"":msg);
                          %>
                          </td>

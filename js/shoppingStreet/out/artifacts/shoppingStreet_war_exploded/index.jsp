@@ -109,14 +109,13 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
         	<span class="fl">你好：<a href=<%
-                    User user=(User) request.getAttribute("user");
+                    User user=(User) session.getAttribute("user");
                     if(user!=null){
-
-                        out.print("member.jsp"+"?"+user.getLoginName());
+                        out.print("member.jsp");
                     }else {
                         out.print("login.jsp");
                     }
-                %> id="userName">
+                %>>
                 <%
                     if(user!=null){
                         String userName = user.getUserName();
@@ -124,7 +123,7 @@
                     }else {
                         out.print("登陆");
                     }
-                %></a>&nbsp; <a href="regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+                %></a>&nbsp <a href="regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
