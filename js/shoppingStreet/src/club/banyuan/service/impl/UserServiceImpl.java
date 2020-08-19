@@ -19,12 +19,11 @@ public class UserServiceImpl implements UserService {
         return newUser;
     }
 
-    @Override
-    public User login(String username, String password) throws Exception {
-        Connection connection = DataSourceUtil.openConnection();
-        UserDao userDao = new UserDaoImpl(connection);
-        User loginUser = userDao.getUserByUserNameAndPwd(username,password);
-        DataSourceUtil.closeConnection(connection);
-        return loginUser;
+    public User login(String username,String password) throws Exception {
+        Connection conn = DataSourceUtil.openConnection();
+        UserDao userDao = new UserDaoImpl(conn);
+        User newUser = userDao.getUserByUserNameAndPwd(username,password);
+        DataSourceUtil.closeConnection(conn);
+        return newUser;
     }
 }

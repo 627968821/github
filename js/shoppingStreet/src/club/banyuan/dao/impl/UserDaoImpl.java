@@ -20,9 +20,6 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
         if (rs.next()) {
             user = tableToClass(rs);
         }
-        if (user == null) {
-            throw new Exception();
-        }
         this.closeResource(rs);
         return user;
     }
