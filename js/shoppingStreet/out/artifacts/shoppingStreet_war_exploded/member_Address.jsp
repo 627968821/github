@@ -276,10 +276,10 @@
                         <td><%
                             Map<String,Integer> addressMap = (Map<String,Integer>) session.getAttribute("address");
                             for(String add:addressMap.keySet()){
-//                                if(addressMap.get(add)==1){
-//                                    out.print(add);
-//                                }
-                                out.print(add);
+                                if(addressMap.get(add)==1){
+                                    out.print(add);
+                                }
+
                             }
                         %></td>
                     </tr>
