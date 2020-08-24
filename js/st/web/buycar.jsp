@@ -36,8 +36,8 @@ $(function () {
     $("#${item.key.id}+").click(function() {
     var num = $("#${item.key.id}");
     console.log(num);
-    if(num>10){
-    $("#${item.key.id}").val(10);
+    if(num>${item.key.stock}){
+    $("#${item.key.id}").val(${item.key.stock});
     }
     })
     </c:forEach>
