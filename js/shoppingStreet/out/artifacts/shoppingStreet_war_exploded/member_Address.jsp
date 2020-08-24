@@ -279,7 +279,6 @@
                                 if(addressMap.get(add)==1){
                                     out.print(add);
                                 }
-
                             }
                         %></td>
                     </tr>

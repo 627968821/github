@@ -107,23 +107,29 @@
             </span>
         </span>
         <!--End 所在收货地区 End-->
-        <span class="fr">
-        	<span class="fl">你好：<a href=<%
-                    User user=(User) session.getAttribute("user");
-                    if(user!=null){
-                        out.print("member.jsp");
-                    }else {
-                        out.print("login.jsp");
+        <span class="fr"><%
+            Object obj = session.getAttribute("user");
+            if(obj == null) {
+
+                Cookie[] cookies = request.getCookies();
+                boolean flag = false;
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("loginName")) {
+                        out.println("<span class=\"fl\">你好，" + cookie.getValue()
+                                + "请<a href=\"login.jsp\">登录</a>&nbsp; <a href=\"regist.html\" style=\"color:#ff4e00;\">免费注册</a>");
+                        flag = true;
                     }
-                %>>
-                <%
-                    if(user!=null){
-                        String userName = user.getUserName();
-                        out.print(userName);
-                    }else {
-                        out.print("登陆");
-                    }
-                %></a>&nbsp <a href="regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+                }
+                if (flag == false) {
+                    out.println("<span class=\"fl\">你好，请<a href=\"login.jsp\">登录</a>&nbsp; <a href=\"regist.html\" style=\"color:#ff4e00;\">免费注册</a>");
+                }
+            }
+            else{
+                User user = (User)obj;
+                out.println("<span class=\"fl\">欢迎<a href=\"getMemberAddress.do\">" + user.getLoginName() + "</a>");
+            }
+        %>
+            |&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
