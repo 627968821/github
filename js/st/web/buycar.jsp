@@ -30,11 +30,9 @@
             <c:forEach items="${sessionScope.cart}" var="item">
             $("#a${item.key.id}+").click(function () {
                 var num = $("#a${item.key.id}").val();
-                console.log(num);
-                <%--num++;--%>
-                <%--$("#a${item.key.id}").val(num);--%>
                 if (num >${item.key.stock}) {
                     $("#a${item.key.id}").val(${item.key.stock});
+                    alert("${item.key.id}"+"库存不足");
                 }
             });
             </c:forEach>

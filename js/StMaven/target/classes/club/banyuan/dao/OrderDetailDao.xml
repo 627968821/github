@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="club.banyuan.dao.OrderDetailDao">
+    <select id="getOrderDetailListOrderId" parameterType="List" resultType="club.banyuan.pojo.OrderDetail">
+select *from order_detail where id=#{id};
+    </select>
+    <insert id="addOrderDetail" parameterType="club.banyuan.pojo.OrderDetail">
+        insert into order_detail values (null,#{orderId},#{productId},#{quantity},#{cost});
+    </insert>
+</mapper>

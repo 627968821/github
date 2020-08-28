@@ -31,7 +31,9 @@
         $(function () {
             $("#logName").blur(function () {
                 $.get("ajaxUser.do", "loginName=" + $("#logName").val(), function (result) {
-                   if(result!==""){
+                   if(result=="true"){
+                       console.log(result);
+                       console.log(result.length);
                        $("#exUser").show();
                    }
                 });

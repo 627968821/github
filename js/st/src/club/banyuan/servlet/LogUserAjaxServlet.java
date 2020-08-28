@@ -27,7 +27,11 @@ public class LogUserAjaxServlet extends HttpServlet {
         try {
             User exit = userService.isExit(loginName);
             session.setAttribute("isExit",exit);
-            out.println(exit.getLoginName());
+            if(exit!=null){
+                out.print("true");
+            }else {
+                out.print("false");
+            }
         } catch (Exception e) {
 //            e.printStackTrace();
         }finally {

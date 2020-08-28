@@ -68,7 +68,6 @@ public abstract class BaseDaoImpl implements IBaseDao {
             e.printStackTrace();
             id =null;
         }
-
         return id.intValue();
     }
 
