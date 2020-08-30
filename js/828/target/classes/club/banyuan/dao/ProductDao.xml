@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.dao.ProductDao">
+    <select id="getProductByParam" resultType="Product" parameterType="map">
+        select * from product where 1=1
+            <if test="name!=null and name!=''">
+              and name like #{name}
+            </if>
+            <if test="lowPrice>0 and hiPrice>lowPrice">
+                and price between #{lowPrice} and #{hiPrice}
+            </if>
+             <if test="stock>0">
+                 and stock > #{stock}
+             </if>
+    </select>
+
+    <select id="getProductByParam2" resultType="Product" parameterType="map">
+        select * from product
+        <where>
+            <if test="name!=null and name!=''">
+                and name like #{name}
+            </if>
+            <if test="lowPrice>0 and hiPrice>lowPrice">
+                and price between #{lowPrice} and #{hiPrice}
+            </if>
+            <if test="stock>0">
+                and stock > #{stock}
+            </if>
+        </where>
+    </select>
+
+    <select id="getProductByLevel1IdArray" resultType="Product" parameterType="list">
+        select * from product where categoryLevel1Id in
+        <foreach collection="level1Ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

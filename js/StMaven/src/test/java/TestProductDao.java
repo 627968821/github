@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,5 +129,43 @@ public class TestProductDao {
         Product productById = mapper.getProductById(733);
         System.out.println(productById);
 
+    }
+    @Test
+    public void testProductByParam() throws IOException {
+        Map map = new HashMap();
+//       map.put("name","%奶%");
+        map.put("lowPrice",400);
+        map.put("hiPrice",1000);
+        map.put("stock",200);
+        List<Product> productList = productDao.getProductByParam2(map);
+        for(Product product : productList){
+            System.out.println(product);
+        }
+    }
+
+    @Test
+    public void testGetProductByLevel1IdArray() {
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(628);
+        ids.add(630);
+        ids.add(660);
+        List<Product> productList = productDao.getProductByLevel1IdArray(ids);
+        for (Product product : productList) {
+            System.out.println(product);
+        }
+    }
+    @Test
+    public void testProductByParam3() throws IOException {
+        String param = "奶 儿童";
+        List<String> keyList = new ArrayList<String>();
+        String[] params = param.split(" ");
+        for(String s : params){
+            keyList.add("%"+s+"%");
+        }
+
+        List<Product> productList = productDao.getProductByParam3(keyList);
+        for(Product product : productList){
+            System.out.println(product);
+        }
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.dao.OrderDao">
+    <cache></cache>
+    <resultMap id="saleMap" type="SaledAuction">
+        <id property="id" column="id"></id>
+        <result property="endPrice" column="endPrice"></result>
+        <result property="userName" column="userName"></result>
+        <result property="userId" column="userId"></result>
+        <association property="auctionItem" javaType="AuctionItem" fetchType="lazy">
+            <id property="auctionId" column="auctionId"></id>
+            <result property="auctionName" column="auctionName"></result>
+            <result property="startPrice" column="startPrice"></result>
+            <result property="lowPrice" column="lowPrice"></result>
+            <result property="startTime" column="startTime"></result>
+            <result property="endTime" column="endTime"></result>
+            <result property="pictureUrl" column="pictureUrl"></result>
+            <result property="desc" column="desc"></result>
+
+        </association>
+    </resultMap>
+<select id="getAllSaledAuction" resultMap="saleMap">
+    SELECT s.id,s.endPrice ,u.userName,s.userId,a.* FROM
+saledauction s,`user` u,auctionitem a
+WHERE s.auctionId=a.auctionId
+and s.userId=u.userId
+</select>
+</mapper>

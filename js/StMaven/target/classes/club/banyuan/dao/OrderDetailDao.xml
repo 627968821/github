@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="club.banyuan.dao.OrderDetailDao">
-    <select id="getOrderDetailListOrderId" parameterType="List" resultType="club.banyuan.pojo.OrderDetail">
+    <select id="getOrderDetailListOrderId" parameterType="int" resultType="OrderDetail">
 select *from order_detail where id=#{id};
     </select>
-    <insert id="addOrderDetail" parameterType="club.banyuan.pojo.OrderDetail">
+    <insert id="addOrderDetail" parameterType="OrderDetail">
         insert into order_detail values (null,#{orderId},#{productId},#{quantity},#{cost});
     </insert>
 </mapper>

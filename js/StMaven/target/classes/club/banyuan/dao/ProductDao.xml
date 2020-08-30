@@ -37,4 +37,44 @@
 <select id="getProductById" parameterType="int" resultType="Product">
     select *from product where id =#{id};
 </select>
+    <select id="getProductByParam1" resultType="Product" parameterType="map">
+        select * from product where 1=1
+        <if test="name!=null and name!=''">
+            and name like #{name}
+        </if>
+        <if test="lowPrice>0 and hiPrice>lowPrice">
+            and price between #{lowPrice} and #{hiPrice}
+        </if>
+        <if test="stock>0">
+            and stock > #{stock}
+        </if>
+    </select>
+
+    <select id="getProductByParam2" resultType="Product" parameterType="map">
+        select * from product
+        <where>
+            <if test="name!=null and name!=''">
+                and name like #{name}
+            </if>
+            <if test="lowPrice>0 and hiPrice>lowPrice">
+                and price between #{lowPrice} and #{hiPrice}
+            </if>
+            <if test="stock>0">
+                and stock > #{stock}
+            </if>
+        </where>
+    </select>
+
+    <select id="getProductByLevel1IdArray" resultType="Product" parameterType="list">
+        select * from product where categoryLevel1Id in
+        <foreach collection="level1Ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="getProductByParam3" resultType="Product" parameterType="list">
+        select * from product where 1=0
+        <foreach collection="keyList" item="key" >
+            or name like #{key}
+        </foreach>
+    </select>
 </mapper>
