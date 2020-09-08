@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:16:06:14 +0800] "GET /text_war_exploded/xml.do HTTP/1.1" 404 949 http-bio-8080-exec-1 37
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:16:06:15 +0800] "GET /favicon.ico HTTP/1.1" 404 949 http-bio-8080-exec-3 4
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:16:06:27 +0800] "GET /text_war_exploded/index.jsp HTTP/1.1" 404 1005 http-bio-8080-exec-4 2
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:16:06:34 +0800] "GET /index.jsp HTTP/1.1" 200 1635 http-bio-8080-exec-5 610
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:16:06:42 +0800] "POST /parent/test3 HTTP/1.1" 200 92 http-bio-8080-exec-6 123
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:17:13:07 +0800] "GET /index.jsp HTTP/1.1" 200 1635 http-bio-8080-exec-1 71
+0:0:0:0:0:0:0:1 - - [01/Sep/2020:17:13:12 +0800] "POST /parent/test3 HTTP/1.1" 200 92 http-bio-8080-exec-3 78

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.dao.ProductDao">
+
+    <resultMap id="productOrderMap" type="Product">
+        <id column="id" property="id" />
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="categoryLevel1Id" property="categoryLevel1Id"/>
+        <result column="categoryLevel2Id" property="categoryLevel2Id"/>
+        <result column="categoryLevel3Id" property="categoryLevel3Id"/>
+        <result column="fileName" property="fileName"/>
+        <result column="isDelete" property="isDelete"/>
+        <collection property="orderList" ofType="Order">
+            <id column="oid" property="id" />
+            <result column="userId" property="userId"/>
+            <result column="userAddress" property="userAddress"/>
+            <result column="createTime" property="createTime"/>
+            <result column="cost" property="cost"/>
+            <result column="serialNumber" property="serialNumber"/>
+            <result column="ologinName" property="loginName"/>
+        </collection>
+    </resultMap>
+
+
+
+    <select id="getProductByParam" resultType="Product" parameterType="map">
+        select * from product where 1=1
+            <if test="name!=null and name!=''">
+              and name like #{name}
+            </if>
+            <if test="lowPrice>0 and hiPrice>lowPrice">
+                and price between #{lowPrice} and #{hiPrice}
+            </if>
+             <if test="stock>0">
+                 and stock > #{stock}
+             </if>
+    </select>
+
+    <select id="getProductByParam2" resultType="Product" parameterType="map">
+        select * from product
+        <where>
+            <if test="name!=null and name!=''">
+                and name like #{name}
+            </if>
+            <if test="lowPrice>0 and hiPrice>lowPrice">
+                and price between #{lowPrice} and #{hiPrice}
+            </if>
+            <if test="stock>0">
+                and stock > #{stock}
+            </if>
+        </where>
+    </select>
+
+    <select id="getProductByParam3" resultType="Product" parameterType="list">
+        select * from product where 1=0
+        <foreach collection="keyList" item="key" >
+             or name like #{key}
+        </foreach>
+    </select>
+
+    <select id="getProductByLevel1IdArray" resultType="Product" parameterType="list">
+        select * from product where categoryLevel1Id in
+        <foreach collection="level1Ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="getProductAndOrder" resultMap="productOrderMap" parameterType="int">
+        select
+            o.id oid,o.userId,o.userAddress,
+            o.createTime,o.cost,o.serialNumber,
+            o.loginName ologinName,
+         product.*
+        from shoppingstreet.order o
+        inner join
+        order_detail detail
+        on o.id = detail.orderId
+        inner join product
+        on detail.productId = product.id
+        where product.id=#{productId};
+    </select>
+</mapper>

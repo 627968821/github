@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.dao.OrderDao">
+    <resultMap id="orderMap" type="Order">
+        <id column="oid" property="id" />
+        <result column="userId" property="userId"/>
+        <result column="userAddress" property="userAddress"/>
+        <result column="createTime" property="createTime"/>
+        <result column="cost" property="cost"/>
+        <result column="serialNumber" property="serialNumber"/>
+        <result column="ologinName" property="loginName"/>
+        <association property="user" javaType="User">
+            <id column="id" property="id" />
+            <result column="loginName" property="loginName"/>
+            <result column="userName" property="userName"/>
+            <result column="password" property="password"/>
+            <result column="sex" property="sex"/>
+            <result column="email" property="email"/>
+            <result column="mobile" property="mobile"/>
+            <result column="identitycode" property="identitycode"/>
+            <result column="type" property="type"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="orderProductMap" type="Order">
+        <id column="oid" property="id" />
+        <result column="userId" property="userId"/>
+        <result column="userAddress" property="userAddress"/>
+        <result column="createTime" property="createTime"/>
+        <result column="cost" property="cost"/>
+        <result column="serialNumber" property="serialNumber"/>
+        <result column="ologinName" property="loginName"/>
+        <collection property="productList" ofType="Product">
+            <id column="id" property="id" />
+            <result column="name" property="name"/>
+            <result column="description" property="description"/>
+            <result column="price" property="price"/>
+            <result column="stock" property="stock"/>
+            <result column="categoryLevel1Id" property="categoryLevel1Id"/>
+            <result column="categoryLevel2Id" property="categoryLevel2Id"/>
+            <result column="categoryLevel3Id" property="categoryLevel3Id"/>
+            <result column="fileName" property="fileName"/>
+            <result column="isDelete" property="isDelete"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="getOrderByUserId" resultType="OrderVO" parameterType="int">
+        select o.* , user.username from shoppingstreet.order o,user
+        where o.userId = user.id and o.userId=#{userId}
+    </select>
+
+    <select id="getOrderByUserId2" resultMap="orderMap" parameterType="int">
+        select
+            o.id oid,o.userId,o.userAddress,
+            o.createTime,o.cost,o.serialNumber,
+            o.loginName ologinName,
+            user.*
+         from shoppingstreet.order o,user
+        where o.userId = user.id and o.userId=#{userId}
+    </select>
+
+    <select id="getOrderAndProduct" resultMap="orderProductMap" parameterType="int">
+        select
+            o.id oid,o.userId,o.userAddress,
+            o.createTime,o.cost,o.serialNumber,
+            o.loginName ologinName,
+         product.*
+        from shoppingstreet.order o
+        inner join
+        order_detail detail
+        on o.id = detail.orderId
+        inner join product
+        on detail.productId = product.id
+        where o.id=#{orderId};
+    </select>
+</mapper>
