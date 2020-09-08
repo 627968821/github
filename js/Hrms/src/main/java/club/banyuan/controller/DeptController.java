@@ -74,12 +74,15 @@ public class DeptController {
     @ResponseBody
     public void addDept(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         init();
         String name = request.getParameter("name");
         System.out.println(name);
         String description = request.getParameter("description");
+        String id = request.getParameter("id");
         System.out.println(description);
         PrintWriter writer = response.getWriter();
+        if(id==null){
         Dept name1 = deptDao.getDeptByName(name);
         System.out.println(name1);
         if (name1 != null) {
@@ -88,6 +91,16 @@ public class DeptController {
             int i = deptDao.addDept(name, description);
             destroy();
             writer.print("{\"code\":0,\"message\":\"\"}");
+        }}else {
+            //检验是否有同名
+            Dept deptByNameAndId = deptDao.getDeptByNameAndId(name, Integer.parseInt(id));
+            if (deptByNameAndId != null) {
+                writer.print("{\"code\":1,\"message\":\"\"}");
+            } else {
+                deptDao.updateDeptById(name, description, Integer.parseInt(id));
+                destroy();
+                writer.print("{\"code\":0,\"message\":\"\"}");
+            }
         }
     }
 
@@ -107,6 +120,7 @@ public class DeptController {
         PrintWriter writer = response.getWriter();
         if(i!=0){
             writer.print("{\"code\":0,\"message\":\"操作成功\"}");
+            destroy();
         }else {
             destroy();
             writer.print("{\"code\":\"1\",\"message\":\"删除失败\"}");

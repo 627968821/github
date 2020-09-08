@@ -14,6 +14,10 @@ public interface DeptDao {
     @Select("select *from department where name=#{name}")
     @ResultType(Dept.class)
     public Dept getDeptByName(String name);
-
     public int deleteDeptById(List<Integer> idList);
+    @Update("update department set name=#{name},description=#{description} where id=#{id}")
+    public int updateDeptById(@Param("name")String name,@Param("description") String description,@Param("id") Integer id);
+    @Select("select *from department where name=#{name} and id!=#{id}")
+    @ResultType(Dept.class)
+    public Dept getDeptByNameAndId(@Param("name") String name,@Param("id") Integer id);
 }

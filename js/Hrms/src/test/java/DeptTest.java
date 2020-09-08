@@ -62,4 +62,14 @@ public class DeptTest {
         int i = deptDao.deleteDeptById(idList);
         System.out.println(i);
     }
+    @Test
+    public void update(){
+        int i = deptDao.updateDeptById("zhangsan", "asdas", 3);
+        System.out.println(i);
+    }
+    @Test
+    public void getDeptByNameAndId(){
+        Dept dp = deptDao.getDeptByNameAndId("售后", 3);
+        System.out.println(dp);
+    }
 }
