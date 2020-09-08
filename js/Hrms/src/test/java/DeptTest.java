@@ -12,11 +12,13 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeptTest {
     SqlSession session = null;
     DeptDao deptDao = null;
+
     @Before
     public void init() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
@@ -27,25 +29,37 @@ public class DeptTest {
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         //事务提交
         session.commit();
 //        资源关闭
         session.close();
     }
+
     @Test
-    public void getDept(){
+    public void getDept() {
         List<Dept> allDept = deptDao.getAllDept();
         System.out.println(allDept);
     }
+
     @Test
-    public void addDept(){
+    public void addDept() {
         int i = deptDao.addDept("sss55", "sdd");
         System.out.println(i);
     }
+
     @Test
-    public void getDeptByName(){
+    public void getDeptByName() {
         Dept ss = deptDao.getDeptByName("怡宝");
         System.out.println(ss);
+    }
+
+    @Test
+    public void deleteById() {
+        List<Integer> idList = new ArrayList<>();
+        idList.add(4);
+        idList.add(9);
+        int i = deptDao.deleteDeptById(idList);
+        System.out.println(i);
     }
 }

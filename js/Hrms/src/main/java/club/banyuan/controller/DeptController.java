@@ -75,24 +75,41 @@ public class DeptController {
     public void addDept(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
         init();
-      String name = request.getParameter("name");
+        String name = request.getParameter("name");
         System.out.println(name);
-      String description = request.getParameter("description");
+        String description = request.getParameter("description");
         System.out.println(description);
         PrintWriter writer = response.getWriter();
         Dept name1 = deptDao.getDeptByName(name);
         System.out.println(name1);
-        if(name1!=null){
-           writer.print("{\"code\":1,\"message\":\"\"}");
-        }else {
+        if (name1 != null) {
+            writer.print("{\"code\":1,\"message\":\"\"}");
+        } else {
             int i = deptDao.addDept(name, description);
             destroy();
             writer.print("{\"code\":0,\"message\":\"\"}");
         }
     }
+
     @RequestMapping(value = "dept/delete")
     @ResponseBody
-    public void deleteDept(HttpServletRequest request, HttpServletResponse response){
-
+    public void deleteDept(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        init();
+        String ids = request.getParameter("ids");
+        String[] split = ids.split(",");
+        List<Integer> idList=new ArrayList<>();
+        for (String s : split) {
+            idList.add(Integer.parseInt(s));
+        }
+        String string = JSONObject.toJSONString(idList);
+        System.out.println(string);
+        int i = deptDao.deleteDeptById(idList);
+        PrintWriter writer = response.getWriter();
+        if(i!=0){
+            writer.print("{\"code\":0,\"message\":\"操作成功\"}");
+        }else {
+            destroy();
+            writer.print("{\"code\":\"1\",\"message\":\"删除失败\"}");
+        }
     }
 }

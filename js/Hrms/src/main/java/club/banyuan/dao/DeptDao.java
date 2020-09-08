@@ -14,6 +14,6 @@ public interface DeptDao {
     @Select("select *from department where name=#{name}")
     @ResultType(Dept.class)
     public Dept getDeptByName(String name);
-    @Delete("delete *from department where id=#{id}")
+
     public int deleteDeptById(List<Integer> idList);
 }
