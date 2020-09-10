@@ -1,7 +1,10 @@
 package club.banyuan.controller;
 
 import club.banyuan.dao.DeptDao;
+<<<<<<< HEAD
 import club.banyuan.dao.ImpDao;
+=======
+>>>>>>> fc5f787... 1
 import club.banyuan.pojo.Dept;
 
 import java.io.IOException;
@@ -15,7 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONObject;
+<<<<<<< HEAD
 import com.alibaba.fastjson.JSONPObject;
+=======
+>>>>>>> fc5f787... 1
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -108,6 +114,10 @@ public class DeptController {
     @ResponseBody
     public void deleteDept(HttpServletRequest request, HttpServletResponse response) throws IOException {
         init();
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc5f787... 1
         String ids = request.getParameter("ids");
         String[] split = ids.split(",");
         List<Integer> idList=new ArrayList<>();
@@ -126,4 +136,20 @@ public class DeptController {
             writer.print("{\"code\":\"1\",\"message\":\"删除失败\"}");
         }
     }
+<<<<<<< HEAD
+=======
+    @RequestMapping(value = "dept/getcombobox")
+    @ResponseBody
+    public void getcombobox(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        init();
+        response.setCharacterEncoding("UTF-8");
+        List<Dept> allDept = deptDao.getAllDept();
+        String string = JSONObject.toJSONString(allDept);
+        PrintWriter writer = response.getWriter();
+        writer.print(string);
+        System.out.println(string);
+
+    }
+
+>>>>>>> fc5f787... 1
 }

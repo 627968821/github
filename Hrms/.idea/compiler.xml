@@ -9,5 +9,11 @@
         <module name="Hrms" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
+=======
+    <bytecodeTargetLevel>
+      <module name="Hrms" target="1.8" />
+    </bytecodeTargetLevel>
+>>>>>>> fc5f787... 1
   </component>
 </project>

@@ -30,4 +30,11 @@
         <servlet-name>SpringMVCDispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+=======
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/dept/save</location>
+    </error-page>
+>>>>>>> fc5f787... 1
 </web-app>

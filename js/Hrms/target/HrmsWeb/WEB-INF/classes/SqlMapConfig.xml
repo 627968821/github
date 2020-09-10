@@ -21,8 +21,14 @@
     </environments>
 
     <mappers>
+<<<<<<< HEAD
         <mapper resource="club/banyuan/dao/ImpDao.xml"/>
         <mapper resource="club/banyuan/dao/DeptDao.xml"/>
+=======
+        <mapper resource="club/banyuan/dao/EmpDao.xml"/>
+        <mapper resource="club/banyuan/dao/DeptDao.xml"/>
+        <mapper resource="club/banyuan/dao/AdminDao.xml"/>
+>>>>>>> fc5f787... 1
     </mappers>
 
 </configuration>

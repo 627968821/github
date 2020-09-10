@@ -42,8 +42,13 @@ public class Dept {
   @Override
   public String toString() {
     return "{" +
+<<<<<<< HEAD
             "id=" + id +
             ", name='" + name + '\'' +
+=======
+            "name=" + name +
+            ", id='" + id + '\'' +
+>>>>>>> fc5f787... 1
             ", description='" + description + '\'' +
             '}';
   }
